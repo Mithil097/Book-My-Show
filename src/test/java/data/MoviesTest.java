@@ -6,13 +6,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MoviesTest {
     @Test
-    void expectEmptyStringToReturnWhenMoviesListIsZeroAndCalledGetMovies() {
+    void expectEmptyStringToReturnWhenMoviesListIsZeroAndCalledGetMovieNames() {
         Movies movies = new Movies();
         assertEquals("", movies.getMovieNames());
     }
 
     @Test
-    void expectMovieNamesToReturnWhenSetMoviesAddedListOfMoviesAndCalledGetMovies() {
+    void expectMovieNamesToReturnWhenSetMoviesAddedListOfMoviesAndCalledGetMovieNames() {
         Movies movies = new Movies();
         movies.setMovies();
         assertEquals("Avengers\nSahoo\nDreamGirl\n", movies.getMovieNames());

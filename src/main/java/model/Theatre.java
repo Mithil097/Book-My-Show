@@ -5,13 +5,15 @@ public class Theatre {
     private final String movieName;
 
     public Theatre(String screenName, String movieName) {
-        this.screenName=screenName;
-        this.movieName=movieName;
+        this.screenName = screenName;
+        this.movieName = movieName;
     }
 
     String getMovieInTheatre() {
         return this.movieName;
     }
 
-    public String getScreenName(){ return this.screenName;}
+    public String getScreenName() {
+        return this.screenName;
+    }
 }

@@ -6,9 +6,9 @@ import static org.mockito.Mockito.verify;
 
 public class BookingTest {
     @Test
-    void expectListOfMoviesToReturnWhenBookIsCalledInBooking(){
-        Movies movies=mock(Movies.class);
-        Booking bookTheShow=new Booking(movies);
+    void expectSetListOfMoviesWhenBookIsCalledInBooking() {
+        Movies movies = mock(Movies.class);
+        Booking bookTheShow = new Booking(movies);
         bookTheShow.listOfMovies();
         verify(movies).setMovies();
     }

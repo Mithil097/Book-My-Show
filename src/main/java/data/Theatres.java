@@ -11,7 +11,7 @@ public class Theatres {
     public String getTheatreNames() {
         String theatreNames = "";
         for (Theatre theatre : theatres) {
-            theatreNames += theatre.getScreenName()+"\n";
+            theatreNames += theatre.getScreenName() + "\n";
         }
         return theatreNames;
     }

@@ -1,4 +1,6 @@
-package model;
+package data;
+
+import model.Movie;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,7 +15,7 @@ public class Movies {
         movies.add(new Movie("DreamGirl","Hindi",new Date(2019,9,5)));
     }
 
-    public String getMovies() {
+    public String getMovieNames() {
         String movieNames = "";
         for (Movie movie : movies) {
             movieNames += movie.getMovieName() + "\n";

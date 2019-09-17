@@ -1,4 +1,4 @@
-package model;
+package data;
 
 import org.junit.jupiter.api.Test;
 
@@ -8,13 +8,13 @@ class TheatresTest {
     @Test
     void expectEmptyStringToReturnWhenListOfTheatresIsEmptyInTheatres(){
         Theatres theatres=new Theatres();
-        assertEquals("",theatres.getTheatres());
+        assertEquals("",theatres.getTheatreNames());
     }
 
     @Test
     void expectTheatreNamesToReturnWhenListOfTheatresIsAddedInTheatres(){
         Theatres theatres=new Theatres();
         theatres.setTheatres();
-        assertEquals("Asian\nPVR\nCinePolis\nIMAX\n",theatres.getTheatres());
+        assertEquals("Asian\nPVR\nCinePolis\nIMAX\n",theatres.getTheatreNames());
     }
 }

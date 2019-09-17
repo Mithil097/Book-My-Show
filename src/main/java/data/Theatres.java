@@ -1,4 +1,6 @@
-package model;
+package data;
+
+import model.Theatre;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +8,7 @@ import java.util.List;
 public class Theatres {
     List<Theatre> theatres = new ArrayList<>();
 
-    public String getTheatres() {
+    public String getTheatreNames() {
         String theatreNames = "";
         for (Theatre theatre : theatres) {
             theatreNames += theatre.getScreenName()+"\n";

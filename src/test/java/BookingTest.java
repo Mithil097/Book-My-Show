@@ -14,7 +14,7 @@ import static org.mockito.Mockito.*;
 class BookingTest {
 
     @Test
-    void expectSetListOfMoviesWhenLisOfMoviesIsCalledInBooking() throws IOException, ParseException {
+    void expectListOfAllMoviesNamesPresentInTheFileToReturnWhenCallingListOfMovies() throws IOException, ParseException {
         Movies movies = mock(Movies.class);
         List<String> movieNames=new ArrayList<>();
         movieNames.add("ABC");
@@ -26,7 +26,7 @@ class BookingTest {
 
 
     @Test
-    void expectListOfTheatresWhenBookIsCalledInBooking(){
+    void expectListOfTheatresWhichConsistsAGivenMovieToReturnWhenCallingListOfTheatresForAGivenMovie(){
         Movies movies = mock(Movies.class);
         Theatres theatres=mock(Theatres.class);
         List<Theatre> theatreNames=new ArrayList<>();

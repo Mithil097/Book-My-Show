@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class MoviesTest {
 
     @Test
-    void expectMovieNamesToReturnWhenSetMoviesAddedListOfMoviesAndCalledGetMovieNames() throws IOException, ParseException {
+    void expectListOfMovieNamesToReturnWhenSetMoviesCalledWithAFile() throws IOException, ParseException {
         Movies movies = new Movies();
         List<String> movieNames=new ArrayList<>();
         movieNames.add("Bahubali");

@@ -1,5 +1,6 @@
 import data.Movies;
 import data.Theatres;
+import model.Theatre;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,4 +23,8 @@ public class Booking {
         return movieNames;
     }
 
+    public List<Theatre> listOfTheatresForAGivenMovieName(String movieName){
+        theatres.setTheatres();
+        return theatres.listOfTheatreForAGivenMovie(movieName);
+    }
 }

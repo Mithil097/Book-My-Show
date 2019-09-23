@@ -20,17 +20,16 @@ public class Movies {
             String movieName=movieDetails[0];
             String language=movieDetails[1];
             String releaseDate=movieDetails[2];
-            System.out.println(movieName+language+releaseDate);
             Date release=new SimpleDateFormat("dd-MM-yyyy").parse(releaseDate);
             movies.add(new Movie(movieName,language,release));
             movie = br.readLine();
         }
     }
 
-    public String getMovieNames() {
-        String movieNames = "";
+    public List<String> getMovieNames() {
+        List<String> movieNames = new ArrayList<>();
         for (Movie movie : movies) {
-            movieNames += movie.getMovieName() + "\n";
+            movieNames.add(movie.getMovieName());
         }
         return movieNames;
     }

@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Movies {
-    private static List<Movie> movies = new ArrayList<>();
+    private List<Movie> movies = new ArrayList<>();
 
     public void setMovies(File file) throws IOException, ParseException {
         BufferedReader br = new BufferedReader(new FileReader(file));

@@ -1,5 +1,9 @@
 import data.Movies;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.ParseException;
+
 public class Booking {
     private final Movies movies;
 
@@ -7,7 +11,10 @@ public class Booking {
         this.movies = movies;
     }
 
-    public void listOfMovies() {
-        movies.setMovies();
+    public String listOfMovies() throws IOException, ParseException {
+        File file=new File("/Users/mithil.kumar/Desktop/BookMyShow/BookMyShow/src/main/java/movies.txt");
+        movies.setMovies(file);
+        String movieNames=movies.getMovieNames();
+        return movieNames;
     }
 }

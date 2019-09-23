@@ -2,19 +2,19 @@ package data;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.ParseException;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MoviesTest {
-    @Test
-    void expectEmptyStringToReturnWhenMoviesListIsZeroAndCalledGetMovieNames() {
-        Movies movies = new Movies();
-        assertEquals("", movies.getMovieNames());
-    }
 
     @Test
-    void expectMovieNamesToReturnWhenSetMoviesAddedListOfMoviesAndCalledGetMovieNames() {
+    void expectMovieNamesToReturnWhenSetMoviesAddedListOfMoviesAndCalledGetMovieNames() throws IOException, ParseException {
         Movies movies = new Movies();
-        movies.setMovies();
-        assertEquals("Avengers\nSahoo\nDreamGirl\n", movies.getMovieNames());
+        File file=new File("/Users/mithil.kumar/Desktop/BookMyShow/BookMyShow/src/main/java/movies.txt");
+        movies.setMovies(file);
+        assertEquals("Bahubali\navengers Infinity war\nMaze Runner\n", movies.getMovieNames());
     }
 }

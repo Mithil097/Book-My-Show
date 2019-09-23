@@ -13,17 +13,17 @@ public class Booking {
 
     public Booking(Movies movies, Theatres theatres) {
         this.movies = movies;
-        this.theatres=theatres;
+        this.theatres = theatres;
     }
 
     public List<String> listOfMovies() throws IOException, ParseException {
-        File file=new File("/Users/mithil.kumar/Desktop/BookMyShow/BookMyShow/src/main/java/movies.txt");
+        File file = new File("/Users/mithil.kumar/Desktop/BookMyShow/BookMyShow/src/main/java/movies.txt");
         movies.setMovies(file);
-        List<String> movieNames=movies.getMovieNames();
+        List<String> movieNames = movies.getMovieNames();
         return movieNames;
     }
 
-    public List<Theatre> listOfTheatresForAGivenMovieName(String movieName){
+    public List<Theatre> listOfTheatresForAGivenMovieName(String movieName) {
         theatres.setTheatres();
         return theatres.listOfTheatreForAGivenMovie(movieName);
     }

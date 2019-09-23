@@ -21,6 +21,6 @@ class TheatreTest {
     void expectTheatreAEqualsToTheatreBWhenScreenNameAndMovieNameAreSame() {
         Theatre theatreA = new Theatre("Asian-cineplex", "Sahoo");
         Theatre theatreB = new Theatre("Asian-cineplex", "Sahoo");
-        assertEquals(theatreA,theatreB);
+        assertEquals(theatreA, theatreB);
     }
 }

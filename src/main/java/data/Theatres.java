@@ -15,10 +15,10 @@ public class Theatres {
         theatres.add(new Theatre("IMAX", "Sahoo"));
     }
 
-    public List<Theatre> listOfTheatreForAGivenMovie(String movieName){
-        List<Theatre> theatreNames=new ArrayList<>();
-        for (Theatre theatre:theatres){
-            if (movieName.equals(theatre.getMovieInTheatre())){
+    public List<Theatre> listOfTheatreForAGivenMovie(String movieName) {
+        List<Theatre> theatreNames = new ArrayList<>();
+        for (Theatre theatre : theatres) {
+            if (movieName.equals(theatre.getMovieInTheatre())) {
                 theatreNames.add(theatre);
             }
         }

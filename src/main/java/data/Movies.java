@@ -2,7 +2,10 @@ package data;
 
 import model.Movie;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -16,12 +19,12 @@ public class Movies {
         BufferedReader br = new BufferedReader(new FileReader(file));
         String movie = br.readLine();
         while (movie != null) {
-            String[] movieDetails=movie.split(",");
-            String movieName=movieDetails[0];
-            String language=movieDetails[1];
-            String releaseDate=movieDetails[2];
-            Date release=new SimpleDateFormat("dd-MM-yyyy").parse(releaseDate);
-            movies.add(new Movie(movieName,language,release));
+            String[] movieDetails = movie.split(",");
+            String movieName = movieDetails[0];
+            String language = movieDetails[1];
+            String releaseDate = movieDetails[2];
+            Date release = new SimpleDateFormat("dd-MM-yyyy").parse(releaseDate);
+            movies.add(new Movie(movieName, language, release));
             movie = br.readLine();
         }
     }

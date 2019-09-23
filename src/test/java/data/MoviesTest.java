@@ -15,11 +15,11 @@ class MoviesTest {
     @Test
     void expectListOfMovieNamesToReturnWhenSetMoviesCalledWithAFile() throws IOException, ParseException {
         Movies movies = new Movies();
-        List<String> movieNames=new ArrayList<>();
+        List<String> movieNames = new ArrayList<>();
         movieNames.add("Bahubali");
         movieNames.add("avengers Infinity war");
         movieNames.add("Maze Runner");
-        File file=new File("/Users/mithil.kumar/Desktop/BookMyShow/BookMyShow/src/main/java/movies.txt");
+        File file = new File("/Users/mithil.kumar/Desktop/BookMyShow/BookMyShow/src/main/java/movies.txt");
         movies.setMovies(file);
         assertEquals(movieNames, movies.getMovieNames());
     }

@@ -10,7 +10,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Queue;
 
 public class Parser {
     private BufferedReader br;
@@ -20,7 +19,7 @@ public class Parser {
     }
 
     List<Movie> getmovies() throws IOException, ParseException {
-        List<Movie> movies=new ArrayList<>();
+        List<Movie> movies = new ArrayList<>();
         String movie = br.readLine();
         while (movie != null) {
             String[] movieDetails = movie.split(",");
@@ -29,7 +28,7 @@ public class Parser {
             String releaseDate = movieDetails[2];
             Movie_Status status = Movie_Status.valueOf(movieDetails[3]);
             Date release = new SimpleDateFormat("dd-MM-yyyy").parse(releaseDate);
-            movies.add(new Movie(movieName,language,release,status));
+            movies.add(new Movie(movieName, language, release, status));
             movie = br.readLine();
         }
         return movies;

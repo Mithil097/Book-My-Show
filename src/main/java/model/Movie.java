@@ -1,7 +1,7 @@
 package model;
 
-import enums.Movie_Status;
 import enums.Movie_Language;
+import enums.Movie_Status;
 
 import java.util.Date;
 
@@ -15,7 +15,7 @@ public class Movie {
         this.movieName = movieName;
         this.language = language;
         this.releaseDate = releaseDate;
-        this.status=status;
+        this.status = status;
     }
 
     public String getDetails() {

@@ -11,7 +11,7 @@ public class Theatre {
     public Theatre(String TheatreName, String movieName, int theatreId) {
         this.TheatreName = TheatreName;
         this.movieName = movieName;
-        this.theatreId=theatreId;
+        this.theatreId = theatreId;
     }
 
     public String getMovieInTheatre() {

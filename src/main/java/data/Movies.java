@@ -12,21 +12,11 @@ import java.util.Date;
 import java.util.List;
 
 public class Movies {
-    private List<Movie> movies = new ArrayList<>();
+    private List<Movie> movies;
 
     public Movies(File file) throws IOException, ParseException {
-        BufferedReader br = new BufferedReader(new FileReader(file));
-        String movie = br.readLine();
-        while (movie != null) {
-            String[] movieDetails = movie.split(",");
-            String movieName = movieDetails[0];
-            Movie_Language language = Movie_Language.valueOf(movieDetails[1]);
-            String releaseDate = movieDetails[2];
-            Movie_Status status= Movie_Status.valueOf(movieDetails[3]);
-            Date release = new SimpleDateFormat("dd-MM-yyyy").parse(releaseDate);
-            movies.add(new Movie(movieName, language, release,status));
-            movie = br.readLine();
-        }
+            Parser parser=new Parser(file);
+            this.movies=parser.getmovies();
     }
 
     public List<String> getMovieNames() {

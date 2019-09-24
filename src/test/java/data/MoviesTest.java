@@ -27,7 +27,7 @@ class MoviesTest {
     }
 
     @Test
-    void ExpectTrueIfMovieNameISPresentInTheMovies() throws IOException, ParseException {
+    void ExpectTrueIfMovieNameIsPresentInTheMovies() throws IOException, ParseException {
         File file = new File("/Users/mithil.kumar/Desktop/BookMyShow/BookMyShow/src/main/java/movies.txt");
         Movies movies = new Movies(file);
         List<String> movieNames = new ArrayList<>();

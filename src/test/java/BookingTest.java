@@ -31,8 +31,8 @@ class BookingTest {
         Movies movies = mock(Movies.class);
         Theatres theatres = mock(Theatres.class);
         List<Theatre> theatreNames = new ArrayList<>();
-        theatreNames.add(new Theatre("PVR", "Sahoo"));
-        theatreNames.add(new Theatre("IMAX", "Sahoo"));
+        theatreNames.add(new Theatre("PVR", "Sahoo",112));
+        theatreNames.add(new Theatre("IMAX", "Sahoo",123));
         Booking bookTheShow = new Booking(movies, theatres);
         when(theatres.listOfTheatreForAGivenMovie("Sahoo")).thenReturn(theatreNames);
         assertEquals(theatreNames, bookTheShow.listOfTheatresForAGivenMovieName("Sahoo"));

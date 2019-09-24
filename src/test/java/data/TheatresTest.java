@@ -27,8 +27,8 @@ class TheatresTest {
         Theatres theatres = new Theatres();
         theatres.setTheatres();
         List<Theatre> theatreNames = new ArrayList<>();
-        theatreNames.add(new Theatre("Asian", "Sahoo"));
-        theatreNames.add(new Theatre("IMAX", "Sahoo"));
+        theatreNames.add(new Theatre("Asian", "Sahoo",123));
+        theatreNames.add(new Theatre("IMAX", "Sahoo",124));
         assertEquals(theatreNames, theatres.listOfTheatreForAGivenMovie("Sahoo"));
     }
 }

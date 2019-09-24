@@ -9,10 +9,10 @@ public class Theatres {
     List<Theatre> theatres = new ArrayList<>();
 
     public void setTheatres() {
-        theatres.add(new Theatre("Asian", "Sahoo"));
-        theatres.add(new Theatre("PVR", "DreamGirl"));
-        theatres.add(new Theatre("CinePolis", "Avengers"));
-        theatres.add(new Theatre("IMAX", "Sahoo"));
+        theatres.add(new Theatre("Asian", "Sahoo",123));
+        theatres.add(new Theatre("PVR", "DreamGirl",111));
+        theatres.add(new Theatre("CinePolis", "Avengers",112));
+        theatres.add(new Theatre("IMAX", "Sahoo",1234));
     }
 
     public List<Theatre> listOfTheatreForAGivenMovie(String movieName) {

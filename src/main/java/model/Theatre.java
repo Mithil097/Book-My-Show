@@ -6,10 +6,12 @@ public class Theatre {
 
     private final String screenName;
     private final String movieName;
+    private final int theatreId;
 
-    public Theatre(String screenName, String movieName) {
+    public Theatre(String screenName, String movieName,int theatreId) {
         this.screenName = screenName;
         this.movieName = movieName;
+        this.theatreId=theatreId;
     }
 
     public String getMovieInTheatre() {

@@ -39,4 +39,20 @@ class BookingTest {
         when(theatres.listOfTheatreForAGivenMovie("Sahoo")).thenReturn(theatreNames);
         assertEquals(theatreNames, bookTheShow.listOfTheatresForAGivenMovieName("Sahoo"));
     }
+
+    @Test
+    void expectExceptionToReturnWhenCallingListOfTheatresForAGivenMovie() throws DoesNotExist {
+        Movies movies = mock(Movies.class);
+        Theatres theatres = mock(Theatres.class);
+        List<Theatre> theatreNames = new ArrayList<>();
+        theatreNames.add(new Theatre("PVR", "Sahoo",112));
+        theatreNames.add(new Theatre("IMAX", "Sahoo",123));
+        try {
+            Booking bookTheShow = new Booking(movies, theatres);
+            when(movies.contains("mithil")).thenReturn(false);
+            bookTheShow.listOfTheatresForAGivenMovieName("Mithil");
+        } catch (DoesNotExist exception) {
+            assertEquals("Movie is not Available", exception.getMessage());
+        }
+    }
 }

@@ -39,7 +39,7 @@ class BookingTest {
     }
 
     @Test
-    void expectExceptionToReturnWhenCallingListOfTheatresForAGivenMovie() {
+    void expectExceptionToReturnWhenCallingListOfTheatresForAGivenMovieWhichIsNotPresentInMovies() {
         Movies movies = mock(Movies.class);
         Theatres theatres = mock(Theatres.class);
         List<Theatre> theatreNames = new ArrayList<>();

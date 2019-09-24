@@ -16,14 +16,14 @@ class TheatresTest {
     }
 
     @Test
-    void expectTheatreNamesToReturnWhenListOfTheatresIsAddedInTheatres() {
+    void expectStringWithAllTheatreNamesToReturnWhenListOfTheatresIsAddedInTheatres() {
         Theatres theatres = new Theatres();
         theatres.setTheatres();
         assertEquals("Asian\nPVR\nCinePolis\nIMAX\n", theatres.getTheatreNames());
     }
 
     @Test
-    void expectListOfTheatresWithMovieNameToReturnWhenGivenAMovieName() {
+    void expectListOfTheatresForAGivenMovieNameToReturnWhenCalledListOFTheatresForAGivenMovieName() {
         Theatres theatres = new Theatres();
         theatres.setTheatres();
         List<Theatre> theatreNames = new ArrayList<>();

@@ -4,10 +4,7 @@ import enums.Movie_Status;
 import enums.Movie_Language;
 import model.Movie;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -17,7 +14,7 @@ import java.util.List;
 public class Movies {
     private List<Movie> movies = new ArrayList<>();
 
-    public void setMovies(File file) throws IOException, ParseException {
+    public Movies(File file) throws IOException, ParseException {
         BufferedReader br = new BufferedReader(new FileReader(file));
         String movie = br.readLine();
         while (movie != null) {
@@ -35,10 +32,17 @@ public class Movies {
     public List<String> getMovieNames() {
         List<String> movieNames = new ArrayList<>();
         for (Movie movie : movies) {
-            if (movie.getStatus()==Movie_Status.Available) {
                 movieNames.add(movie.getMovieName());
-            }
         }
         return movieNames;
+    }
+
+    public boolean contains(String movieName) {
+        for(Movie movie:movies) {
+            if (movie.getMovieName().equals(movieName)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

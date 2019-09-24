@@ -14,7 +14,7 @@ class TheatreTest {
     @Test
     void expectAsianCineplexToReturnWhenTheatreCallsGetScreenName() {
         Theatre theatre = new Theatre("Asian-cineplex", "Sahoo",112);
-        assertEquals("Asian-cineplex", theatre.getScreenName());
+        assertEquals("Asian-cineplex", theatre.getTheatreName());
     }
 
     @Test

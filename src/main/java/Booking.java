@@ -1,10 +1,8 @@
+import Exceptions.DoesNotExist;
 import data.Movies;
 import data.Theatres;
 import model.Theatre;
 
-import java.io.File;
-import java.io.IOException;
-import java.text.ParseException;
 import java.util.List;
 
 public class Booking {
@@ -16,15 +14,16 @@ public class Booking {
         this.theatres = theatres;
     }
 
-    public List<String> listOfMovies() throws IOException, ParseException {
-        File file = new File("/Users/mithil.kumar/Desktop/BookMyShow/BookMyShow/src/main/java/movies.txt");
-        movies.setMovies(file);
+    public List<String> listOfMovies(){
         List<String> movieNames = movies.getMovieNames();
         return movieNames;
     }
 
-    public List<Theatre> listOfTheatresForAGivenMovieName(String movieName) {
-        theatres.setTheatres();
-        return theatres.listOfTheatreForAGivenMovie(movieName);
+    public List<Theatre> listOfTheatresForAGivenMovieName(String movieName) throws DoesNotExist {
+        if (movies.contains(movieName)) {
+            theatres.setTheatres();
+            return theatres.listOfTheatreForAGivenMovie(movieName);
+        }
+        throw new DoesNotExist("Movie is not Available");
     }
 }

@@ -26,7 +26,4 @@ public class Movie {
         return movieName;
     }
 
-    public Movie_Status getStatus(){
-        return this.status;
-    }
 }

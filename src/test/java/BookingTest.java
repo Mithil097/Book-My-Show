@@ -1,3 +1,4 @@
+import Exceptions.DoesNotExist;
 import data.Movies;
 import data.Theatres;
 import model.Theatre;
@@ -27,13 +28,14 @@ class BookingTest {
 
 
     @Test
-    void expectListOfTheatresWhichConsistsAGivenMovieToReturnWhenCallingListOfTheatresForAGivenMovie() {
+    void expectListOfTheatresWhichConsistsAGivenMovieToReturnWhenCallingListOfTheatresForAGivenMovie() throws DoesNotExist {
         Movies movies = mock(Movies.class);
         Theatres theatres = mock(Theatres.class);
         List<Theatre> theatreNames = new ArrayList<>();
         theatreNames.add(new Theatre("PVR", "Sahoo",112));
         theatreNames.add(new Theatre("IMAX", "Sahoo",123));
         Booking bookTheShow = new Booking(movies, theatres);
+        when(movies.contains("Sahoo")).thenReturn(true);
         when(theatres.listOfTheatreForAGivenMovie("Sahoo")).thenReturn(theatreNames);
         assertEquals(theatreNames, bookTheShow.listOfTheatresForAGivenMovieName("Sahoo"));
     }

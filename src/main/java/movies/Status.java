@@ -2,6 +2,6 @@ package movies;
 
 //todo enum conventions
 public enum Status {
-    Available,
-    NotAvailable;
+    AVAILABLE,
+    NOT_AVAILABLE;
 }

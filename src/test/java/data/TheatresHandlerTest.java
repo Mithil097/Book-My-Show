@@ -17,7 +17,7 @@ class TheatresHandlerTest {
     void expectEmptyStringToReturnWhenListOfTheatresIsEmptyInTheatres() throws IOException, ParseException {
         Parser mockParser=mock(Parser.class);
         TheatresHandler theatresHandler = new TheatresHandler(mockParser);
-        assertEquals("", theatresHandler.getTheatreNames());
+        assertEquals("", theatresHandler.getAllTheatreNames());
     }
 
     @Test
@@ -28,7 +28,7 @@ class TheatresHandlerTest {
         theatres.add(new Theatre("PVR","Sahoo"));
         when(mockParser.getTheatres()).thenReturn(theatres);
         TheatresHandler theatresHandler = new TheatresHandler(mockParser);
-        assertEquals("Asian\nPVR\n", theatresHandler.getTheatreNames());
+        assertEquals("Asian\nPVR\n", theatresHandler.getAllTheatreNames());
     }
 
     @Test

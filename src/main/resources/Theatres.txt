@@ -1,4 +1,6 @@
 Asian,Sahoo
 PVR,DreamGirl
-CinePolis,Avengers
+CinePolis,Avengers Infinity war
 IMAX,Sahoo
+PVR,Maze Runner
+Sandhya,Bahubali

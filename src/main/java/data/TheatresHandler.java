@@ -10,7 +10,7 @@ import java.util.List;
 public class TheatresHandler {
     List<Theatre> theatres;
 
-    public TheatresHandler(Parser parser) throws IOException, ParseException {
+    public TheatresHandler(Parser parser) throws IOException {
         this.theatres = parser.getTheatres();
     }
 //todo take input from files
@@ -27,7 +27,7 @@ public class TheatresHandler {
         return theatreNames;
     }
 
-    public String getTheatreNames() {
+    public String getAllTheatreNames() {
         String theatreNames = "";
         for (Theatre theatre : theatres) {
             theatreNames += theatre.getTheatreName() + "\n";

@@ -6,6 +6,8 @@ import movies.Status;
 import java.util.Date;
 import java.util.Objects;
 
+import static movies.Status.AVAILABLE;
+
 public class Movie {
     private final String movieName;
     private final Language language;
@@ -41,5 +43,12 @@ public class Movie {
     @Override
     public int hashCode() {
         return Objects.hash(movieName, language, releaseDate, status);
+    }
+
+    public boolean isAvailable() {
+        if (this.status== AVAILABLE) {
+            return true;
+        }
+        return false;
     }
 }

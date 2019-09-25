@@ -26,7 +26,6 @@ public class Booking {
     public List<String> getTheatresForAMovie(String movieName) throws MovieNotAvailableException {
         if (moviesHandler.contains(movieName)) {
             //todo shouldn't be here
-
             return theatresHandler.getTheatresForMovie(movieName);
         }
         logger.severe("Raises exception for entering wrong movie name");

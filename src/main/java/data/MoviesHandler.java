@@ -18,6 +18,7 @@ public class MoviesHandler {
     public List<String> getMovieNames() {
         List<String> movieNames = new ArrayList<>();
         for (Movie movie : movies) {
+            if (movie.isAvailable())
             movieNames.add(movie.getMovieName());
         }
         return movieNames;

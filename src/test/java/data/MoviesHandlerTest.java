@@ -11,7 +11,8 @@ import java.util.List;
 
 import static movies.Language.ENGLISH;
 import static movies.Language.TELUGU;
-import static movies.Status.Available;
+import static movies.Status.AVAILABLE;
+import static movies.Status.NOT_AVAILABLE;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -22,8 +23,8 @@ class MoviesHandlerTest {
     void expectListOfMovieNamesToReturnWhenGetMoviesCalled() throws IOException, ParseException, NoSuchFieldException {
         Parser mockParser=mock(Parser.class);
         List<Movie> movies=new ArrayList<>();
-        movies.add(new Movie("Bahubali", TELUGU,new Date(2015,07,31),Available));
-        movies.add(new Movie("avengers Infinity war", ENGLISH,new Date(2019,05,12),Available));
+        movies.add(new Movie("Bahubali", TELUGU,new Date(2015,07,31), AVAILABLE));
+        movies.add(new Movie("avengers Infinity war", ENGLISH,new Date(2019,05,12), AVAILABLE));
         when(mockParser.getMovies()).thenReturn(movies);
         MoviesHandler moviesHandler =new MoviesHandler(mockParser);
         List<String> movieNames = new ArrayList<>();
@@ -36,9 +37,9 @@ class MoviesHandlerTest {
     void expectTrueIfMovieNameIsPresentInTheMovies() throws IOException, ParseException {
         Parser mockParser=mock(Parser.class);
         List<Movie> movies=new ArrayList<>();
-        movies.add(new Movie("Bahubali", TELUGU,new Date(2015,07,31),Available));
-        movies.add(new Movie("Sahoo", TELUGU,new Date(2019,05,12),Available));
-        movies.add(new Movie("avengers Infinity war", ENGLISH,new Date(2019,05,12),Available));
+        movies.add(new Movie("Bahubali", TELUGU,new Date(2015,07,31), AVAILABLE));
+        movies.add(new Movie("Sahoo", TELUGU,new Date(2019,05,12), AVAILABLE));
+        movies.add(new Movie("avengers Infinity war", ENGLISH,new Date(2019,05,12), AVAILABLE));
         when(mockParser.getMovies()).thenReturn(movies);
         MoviesHandler moviesHandler = new MoviesHandler(mockParser);
         List<String> movieNames = new ArrayList<>();
@@ -51,9 +52,9 @@ class MoviesHandlerTest {
     void expectFalseIfMovieNameIsNotPresentInTheMovies() throws IOException, ParseException {
         Parser mockParser=mock(Parser.class);
         List<Movie> movies=new ArrayList<>();
-        movies.add(new Movie("Bahubali", TELUGU,new Date(2015,07,31),Available));
-        movies.add(new Movie("Sahoo", TELUGU,new Date(2019,05,12),Available));
-        movies.add(new Movie("avengers Infinity war", ENGLISH,new Date(2019,05,12),Available));
+        movies.add(new Movie("Bahubali", TELUGU,new Date(2015,07,31), AVAILABLE));
+        movies.add(new Movie("Sahoo", TELUGU,new Date(2019,05,12), AVAILABLE));
+        movies.add(new Movie("avengers Infinity war", ENGLISH,new Date(2019,05,12), AVAILABLE));
         when(mockParser.getMovies()).thenReturn(movies);
         MoviesHandler moviesHandler = new MoviesHandler(mockParser);
         List<String> movieNames = new ArrayList<>();
@@ -62,4 +63,20 @@ class MoviesHandlerTest {
         movieNames.add("avengers Infinity war");
         assertFalse(moviesHandler.contains("Mithil"));
     }
+
+    @Test
+    void expectListOfAvailableMovieNamesToReturnWhenGetMoviesCalled() throws IOException, ParseException, NoSuchFieldException {
+        Parser mockParser=mock(Parser.class);
+        List<Movie> movies=new ArrayList<>();
+        movies.add(new Movie("Bahubali", TELUGU,new Date(2015,07,31), AVAILABLE));
+        movies.add(new Movie("avengers Infinity war", ENGLISH,new Date(2019,05,12), AVAILABLE));
+        movies.add(new Movie("Maze Runner", ENGLISH,new Date(2019,05,12), NOT_AVAILABLE));
+        when(mockParser.getMovies()).thenReturn(movies);
+        MoviesHandler moviesHandler =new MoviesHandler(mockParser);
+        List<String> movieNames = new ArrayList<>();
+        movieNames.add("Bahubali");
+        movieNames.add("avengers Infinity war");
+        assertEquals(movieNames, moviesHandler.getMovieNames());
+    }
+
 }

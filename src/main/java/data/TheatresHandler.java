@@ -17,11 +17,11 @@ public class TheatresHandler {
 
 
     //todo getTheatres, getTheatresForMovie
-    public List<Theatre> getTheatresForMovie(String movieName) {
-        List<Theatre> theatreNames = new ArrayList<>();
+    public List<String> getTheatresForMovie(String movieName) {
+        List<String > theatreNames = new ArrayList<>();
         for (Theatre theatre : theatres) {
             if (movieName.equals(theatre.getMovieInTheatre())) {
-                theatreNames.add(theatre);
+                theatreNames.add(theatre.getTheatreName());
             }
         }
         return theatreNames;

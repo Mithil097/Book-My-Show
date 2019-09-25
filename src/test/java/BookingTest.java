@@ -1,7 +1,6 @@
-import movies.MovieDoesNotExistException;
+import movies.MovieNotAvailableException;
 import data.MoviesHandler;
 import data.TheatresHandler;
-import model.Theatre;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -26,16 +25,16 @@ class BookingTest {
 
 
     @Test
-    void expectListOfTheatresWhichConsistsAGivenMovieToReturnWhenCallingListOfTheatresForAGivenMovie() throws MovieDoesNotExistException {
+    void expectListOfTheatresWhichConsistsAGivenMovieToReturnWhenCallingListOfTheatresForAGivenMovie() throws MovieNotAvailableException {
         MoviesHandler moviesHandler = mock(MoviesHandler.class);
         TheatresHandler theatresHandler = mock(TheatresHandler.class);
-        List<Theatre> theatreNames = new ArrayList<>();
-        theatreNames.add(new Theatre("PVR", "Sahoo"));
-        theatreNames.add(new Theatre("IMAX", "Sahoo"));
+        List<String> theatreNames = new ArrayList<>();
+        theatreNames.add("PVR");
+        theatreNames.add("IMAX");
         Booking bookTheShow = new Booking(moviesHandler, theatresHandler);
         when(moviesHandler.contains("Sahoo")).thenReturn(true);
         when(theatresHandler.getTheatresForMovie("Sahoo")).thenReturn(theatreNames);
-        assertEquals(theatreNames, bookTheShow.listOfTheatresForAGivenMovieName("Sahoo"));
+        assertEquals(theatreNames, bookTheShow.getTheatresForAMovie("Sahoo"));
     }
 
     //todo junit way expecting exception
@@ -43,14 +42,11 @@ class BookingTest {
     void expectExceptionToReturnWhenCallingListOfTheatresForAGivenMovieWhichIsNotPresentInMovies() {
         MoviesHandler moviesHandler = mock(MoviesHandler.class);
         TheatresHandler theatresHandler = mock(TheatresHandler.class);
-        List<Theatre> theatreNames = new ArrayList<>();
-        theatreNames.add(new Theatre("PVR", "Sahoo"));
-        theatreNames.add(new Theatre("IMAX", "Sahoo"));
         try {
             Booking bookTheShow = new Booking(moviesHandler, theatresHandler);
             when(moviesHandler.contains("mithil")).thenReturn(false);
-            bookTheShow.listOfTheatresForAGivenMovieName("Mithil");
-        } catch (MovieDoesNotExistException exception) {
+            bookTheShow.getTheatresForAMovie("Mithil");
+        } catch (MovieNotAvailableException exception) {
             assertEquals("Movie is not Available", exception.getMessage());
         }
     }

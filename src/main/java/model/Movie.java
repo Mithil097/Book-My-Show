@@ -32,7 +32,7 @@ public class Movie {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Movie movie = (Movie) o;
-        return Objects.equals(movieName, movie.movieName) &&
+        return movieName.equals(movie.movieName) &&
                 language == movie.language &&
                 Objects.equals(releaseDate, movie.releaseDate) &&
                 status == movie.status;

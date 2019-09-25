@@ -41,9 +41,9 @@ class TheatresHandlerTest {
         theatres.add(new Theatre("INOX", "Maze Runner"));
         when(mockParser.getTheatres()).thenReturn(theatres);
         TheatresHandler theatresHandler = new TheatresHandler(mockParser);
-        List<Theatre> theatresWithTheMovie = new ArrayList<>();
-        theatresWithTheMovie.add(new Theatre("Asian", "Sahoo"));
-        theatresWithTheMovie.add(new Theatre("IMAX", "Sahoo"));
+        List<String> theatresWithTheMovie = new ArrayList<>();
+        theatresWithTheMovie.add("Asian");
+        theatresWithTheMovie.add("IMAX");
         assertEquals(theatresWithTheMovie, theatresHandler.getTheatresForMovie("Sahoo"));
     }
 }

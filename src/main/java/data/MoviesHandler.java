@@ -2,18 +2,17 @@ package data;
 
 import model.Movie;
 
-import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Movies {
+public class MoviesHandler {
+
     private List<Movie> movies;
 
-    public Movies(File file) throws IOException, ParseException {
-        Parser parser = new Parser(file);
-        this.movies = parser.getmovies();
+    public MoviesHandler(Parser parser) throws IOException, ParseException {
+        this.movies = parser.getMovies();
     }
 
     public List<String> getMovieNames() {

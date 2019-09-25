@@ -1,6 +1,6 @@
-import Exceptions.DoesNotExist;
-import data.Movies;
-import data.Theatres;
+import movies.MovieDoesNotExistException;
+import data.MoviesHandler;
+import data.TheatresHandler;
 import model.Theatre;
 import org.junit.jupiter.api.Test;
 
@@ -15,41 +15,42 @@ class BookingTest {
 
     @Test
     void expectListOfAllMoviesNamesPresentInTheFileToReturnWhenCallingListOfMovies() {
-        Movies movies = mock(Movies.class);
+        MoviesHandler moviesHandler = mock(MoviesHandler.class);
         List<String> movieNames = new ArrayList<>();
         movieNames.add("ABC");
-        Theatres theatres = mock(Theatres.class);
-        Booking bookTheShow = new Booking(movies, theatres);
-        when(movies.getMovieNames()).thenReturn(movieNames);
+        TheatresHandler theatresHandler = mock(TheatresHandler.class);
+        Booking bookTheShow = new Booking(moviesHandler, theatresHandler);
+        when(moviesHandler.getMovieNames()).thenReturn(movieNames);
         assertEquals(movieNames, bookTheShow.listOfMovies());
     }
 
 
     @Test
-    void expectListOfTheatresWhichConsistsAGivenMovieToReturnWhenCallingListOfTheatresForAGivenMovie() throws DoesNotExist {
-        Movies movies = mock(Movies.class);
-        Theatres theatres = mock(Theatres.class);
+    void expectListOfTheatresWhichConsistsAGivenMovieToReturnWhenCallingListOfTheatresForAGivenMovie() throws MovieDoesNotExistException {
+        MoviesHandler moviesHandler = mock(MoviesHandler.class);
+        TheatresHandler theatresHandler = mock(TheatresHandler.class);
         List<Theatre> theatreNames = new ArrayList<>();
-        theatreNames.add(new Theatre("PVR", "Sahoo", 112));
-        theatreNames.add(new Theatre("IMAX", "Sahoo", 123));
-        Booking bookTheShow = new Booking(movies, theatres);
-        when(movies.contains("Sahoo")).thenReturn(true);
-        when(theatres.listOfTheatreForAGivenMovie("Sahoo")).thenReturn(theatreNames);
+        theatreNames.add(new Theatre("PVR", "Sahoo"));
+        theatreNames.add(new Theatre("IMAX", "Sahoo"));
+        Booking bookTheShow = new Booking(moviesHandler, theatresHandler);
+        when(moviesHandler.contains("Sahoo")).thenReturn(true);
+        when(theatresHandler.getTheatresForMovie("Sahoo")).thenReturn(theatreNames);
         assertEquals(theatreNames, bookTheShow.listOfTheatresForAGivenMovieName("Sahoo"));
     }
 
+    //todo junit way expecting exception
     @Test
     void expectExceptionToReturnWhenCallingListOfTheatresForAGivenMovieWhichIsNotPresentInMovies() {
-        Movies movies = mock(Movies.class);
-        Theatres theatres = mock(Theatres.class);
+        MoviesHandler moviesHandler = mock(MoviesHandler.class);
+        TheatresHandler theatresHandler = mock(TheatresHandler.class);
         List<Theatre> theatreNames = new ArrayList<>();
-        theatreNames.add(new Theatre("PVR", "Sahoo", 112));
-        theatreNames.add(new Theatre("IMAX", "Sahoo", 123));
+        theatreNames.add(new Theatre("PVR", "Sahoo"));
+        theatreNames.add(new Theatre("IMAX", "Sahoo"));
         try {
-            Booking bookTheShow = new Booking(movies, theatres);
-            when(movies.contains("mithil")).thenReturn(false);
+            Booking bookTheShow = new Booking(moviesHandler, theatresHandler);
+            when(moviesHandler.contains("mithil")).thenReturn(false);
             bookTheShow.listOfTheatresForAGivenMovieName("Mithil");
-        } catch (DoesNotExist exception) {
+        } catch (MovieDoesNotExistException exception) {
             assertEquals("Movie is not Available", exception.getMessage());
         }
     }

@@ -7,20 +7,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class TheatreTest {
     @Test
     void expectSahooToReturnWhenTheatreCallsGetMovieInTheatre() {
-        Theatre theatre = new Theatre("Asian-cineplex", "Sahoo",111);
+        Theatre theatre = new Theatre("Asian-cineplex", "Sahoo");
         assertEquals("Sahoo", theatre.getMovieInTheatre());
     }
 
     @Test
     void expectAsianCineplexToReturnWhenTheatreCallsGetScreenName() {
-        Theatre theatre = new Theatre("Asian-cineplex", "Sahoo",112);
+        Theatre theatre = new Theatre("Asian-cineplex", "Sahoo");
         assertEquals("Asian-cineplex", theatre.getTheatreName());
     }
 
     @Test
     void expectTheatreAEqualsToTheatreBWhenScreenNameAndMovieNameAreSame() {
-        Theatre theatreA = new Theatre("Asian-cineplex", "Sahoo",112);
-        Theatre theatreB = new Theatre("Asian-cineplex", "Sahoo",112);
+        Theatre theatreA = new Theatre("Asian-cineplex", "Sahoo");
+        Theatre theatreB = new Theatre("Asian-cineplex", "Sahoo");
         assertEquals(theatreA, theatreB);
     }
 }

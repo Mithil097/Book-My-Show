@@ -4,14 +4,13 @@ import java.util.Objects;
 
 public class Theatre {
 
-    private final String TheatreName;
+    //todo naming conventions
+    private final String theatreName;
     private final String movieName;
-    private final int theatreId;
 
-    public Theatre(String TheatreName, String movieName, int theatreId) {
-        this.TheatreName = TheatreName;
+    public Theatre(String TheatreName, String movieName) {
+        this.theatreName = TheatreName;
         this.movieName = movieName;
-        this.theatreId = theatreId;
     }
 
     public String getMovieInTheatre() {
@@ -19,7 +18,7 @@ public class Theatre {
     }
 
     public String getTheatreName() {
-        return this.TheatreName;
+        return this.theatreName;
     }
 
     @Override
@@ -27,12 +26,12 @@ public class Theatre {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Theatre theatre = (Theatre) o;
-        return Objects.equals(TheatreName, theatre.TheatreName) &&
+        return Objects.equals(theatreName, theatre.theatreName) &&
                 Objects.equals(movieName, theatre.movieName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(TheatreName, movieName);
+        return Objects.hash(theatreName, movieName);
     }
 }

@@ -1,8 +1,9 @@
 package data;
 
-import enums.Movie_Language;
-import enums.Movie_Status;
 import model.Movie;
+import model.Theatre;
+import movies.Language;
+import movies.Status;
 
 import java.io.*;
 import java.text.ParseException;
@@ -18,15 +19,15 @@ public class Parser {
         this.br = new BufferedReader(new FileReader(file));
     }
 
-    List<Movie> getmovies() throws IOException, ParseException {
+    List<Movie> getMovies() throws IOException, ParseException {
         List<Movie> movies = new ArrayList<>();
         String movie = br.readLine();
         while (movie != null) {
             String[] movieDetails = movie.split(",");
             String movieName = movieDetails[0];
-            Movie_Language language = Movie_Language.valueOf(movieDetails[1]);
+            Language language = Language.valueOf(movieDetails[1]);
             String releaseDate = movieDetails[2];
-            Movie_Status status = Movie_Status.valueOf(movieDetails[3]);
+            Status status = Status.valueOf(movieDetails[3]);
             Date release = new SimpleDateFormat("dd-MM-yyyy").parse(releaseDate);
             movies.add(new Movie(movieName, language, release, status));
             movie = br.readLine();
@@ -34,4 +35,16 @@ public class Parser {
         return movies;
     }
 
+    List<Theatre> getTheatres() throws IOException {
+        List<Theatre> theatres = new ArrayList<>();
+        String theatre = br.readLine();
+        while (theatre != null) {
+            String[] theatreDetails = theatre.split(",");
+            String theatreName = theatreDetails[0];
+            String movieName = theatreDetails[1];
+            theatres.add(new Theatre(theatreName, movieName));
+            theatre = br.readLine();
+        }
+        return theatres;
+    }
 }

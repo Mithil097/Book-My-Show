@@ -2,20 +2,22 @@ package data;
 
 import model.Theatre;
 
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Theatres {
-    List<Theatre> theatres = new ArrayList<>();
+public class TheatresHandler {
+    List<Theatre> theatres;
 
-    public void setTheatres() {
-        theatres.add(new Theatre("Asian", "Sahoo",123));
-        theatres.add(new Theatre("PVR", "DreamGirl",111));
-        theatres.add(new Theatre("CinePolis", "Avengers",112));
-        theatres.add(new Theatre("IMAX", "Sahoo",1234));
+    public TheatresHandler(Parser parser) throws IOException, ParseException {
+        this.theatres = parser.getTheatres();
     }
+//todo take input from files
 
-    public List<Theatre> listOfTheatreForAGivenMovie(String movieName) {
+
+    //todo getTheatres, getTheatresForMovie
+    public List<Theatre> getTheatresForMovie(String movieName) {
         List<Theatre> theatreNames = new ArrayList<>();
         for (Theatre theatre : theatres) {
             if (movieName.equals(theatre.getMovieInTheatre())) {

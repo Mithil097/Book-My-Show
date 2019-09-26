@@ -1,5 +1,6 @@
 import data.MoviesHandler;
 import data.TheatresHandler;
+import jdk.internal.jline.console.completer.StringsCompleter;
 import movies.MovieNotAvailableException;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class Booking {
         this.theatresHandler = theatresHandler;
     }
 
-    public List<String> listOfMovies() {
+    public List<String> getAvailableMovies() {
         List<String> movieNames = moviesHandler.getMovieNames();
         return movieNames;
     }
@@ -28,7 +29,7 @@ public class Booking {
             //todo shouldn't be here
             return theatresHandler.getTheatresForMovie(movieName);
         }
-        logger.severe("Raises exception for entering wrong movie name");
-        throw new MovieNotAvailableException("Movie is not Available");
+        logger.severe("Movie Not Available ");
+        throw new MovieNotAvailableException("Movie not Available");
     }
 }

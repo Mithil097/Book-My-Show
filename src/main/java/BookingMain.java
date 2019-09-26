@@ -1,0 +1,32 @@
+import data.MoviesHandler;
+import data.Parser;
+import data.TheatresHandler;
+import model.Movie;
+import model.Theatre;
+import movies.MovieNotAvailableException;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.ParseException;
+import java.util.List;
+import java.util.Scanner;
+
+public class BookingMain {
+    public static void main(String[] args) throws IOException, ParseException, MovieNotAvailableException {
+        Scanner input=new Scanner(System.in);
+        File movieFile = new File("/Users/mithil.kumar/Desktop/BookMyShow/BookMyShow/src/main/resources/movies.txt");
+        File theatreFile = new File("/Users/mithil.kumar/Desktop/BookMyShow/BookMyShow/src/main/resources/Theatres.txt");
+        //todo is it possible to do with only single object?
+        Parser parser = new Parser();
+        List<Movie> movies=parser.getMovies(movieFile);
+        List<Theatre> theatres=parser.getTheatres(theatreFile);
+        MoviesHandler moviesHandler = new MoviesHandler(movies);
+        TheatresHandler theatresHandler = new TheatresHandler(theatres);
+        Booking booking = new Booking(moviesHandler, theatresHandler);
+        System.out.println(booking.getAvailableMovies());
+        String movieName = input.nextLine();
+        System.out.println(booking.getTheatresForAMovie(movieName));
+        String selectTheatre=input.nextLine();
+        System.out.println(booking.getTimingsForTheTheatre(selectTheatre));
+    }
+}

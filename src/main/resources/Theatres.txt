@@ -3,4 +3,5 @@ PVR,DreamGirl
 CinePolis,Avengers Infinity war
 IMAX,Sahoo
 PVR,Maze Runner
+Cinepolis,Maze Runner
 Sandhya,Bahubali

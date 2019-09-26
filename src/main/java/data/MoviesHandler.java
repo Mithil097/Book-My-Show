@@ -2,8 +2,6 @@ package data;
 
 import model.Movie;
 
-import java.io.IOException;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +9,8 @@ public class MoviesHandler {
 
     private List<Movie> movies;
 
-    public MoviesHandler(Parser parser) throws IOException, ParseException {
-        this.movies = parser.getMovies();
+    public MoviesHandler(List<Movie> movies) {
+        this.movies = movies;
     }
 
     public List<String> getMovieNames() {

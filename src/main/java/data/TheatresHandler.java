@@ -1,5 +1,6 @@
 package data;
 
+import model.Movie;
 import model.Theatre;
 
 import java.io.IOException;
@@ -8,10 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TheatresHandler {
-    List<Theatre> theatres;
 
-    public TheatresHandler(Parser parser) throws IOException {
-        this.theatres = parser.getTheatres();
+
+    private final List<Theatre> theatres;
+
+    public TheatresHandler(List<Theatre> theatres) {
+        this.theatres=theatres;
     }
 //todo take input from files
 

@@ -15,35 +15,32 @@ import static org.mockito.Mockito.when;
 class TheatresHandlerTest {
     @Test
     void expectEmptyStringToReturnWhenListOfTheatresIsEmptyInTheatres() throws IOException, ParseException {
-        Parser mockParser=mock(Parser.class);
-        TheatresHandler theatresHandler = new TheatresHandler(mockParser);
+        List<Theatre> theatres=new ArrayList<>();
+        TheatresHandler theatresHandler = new TheatresHandler(theatres);
         assertEquals("", theatresHandler.getAllTheatreNames());
     }
 
     @Test
     void expectStringWithAllTheatreNamesToReturnWhenListOfTheatresIsAddedInTheatres() throws IOException, ParseException {
-        Parser mockParser=mock(Parser.class);
-        List<Theatre> theatres=new ArrayList<>();
-        theatres.add(new Theatre("Asian","Sahoo"));
-        theatres.add(new Theatre("PVR","Sahoo"));
-        when(mockParser.getTheatres()).thenReturn(theatres);
-        TheatresHandler theatresHandler = new TheatresHandler(mockParser);
+        List<Theatre> theatres = new ArrayList<>();
+        theatres.add(new Theatre("Asian", "Sahoo"));
+        theatres.add(new Theatre("PVR", "Sahoo"));
+        TheatresHandler theatresHandler = new TheatresHandler(theatres);
         assertEquals("Asian\nPVR\n", theatresHandler.getAllTheatreNames());
     }
 
     @Test
     void expectListOfTheatresForAGivenMovieNameToReturnWhenCalledListOFTheatresForAGivenMovieName() throws IOException, ParseException {
-        Parser mockParser=mock(Parser.class);
         List<Theatre> theatres = new ArrayList<>();
         theatres.add(new Theatre("Asian", "Sahoo"));
         theatres.add(new Theatre("IMAX", "Sahoo"));
         theatres.add(new Theatre("PVR", "Avengers"));
         theatres.add(new Theatre("INOX", "Maze Runner"));
-        when(mockParser.getTheatres()).thenReturn(theatres);
-        TheatresHandler theatresHandler = new TheatresHandler(mockParser);
+        TheatresHandler theatresHandler = new TheatresHandler(theatres);
         List<String> theatresWithTheMovie = new ArrayList<>();
         theatresWithTheMovie.add("Asian");
         theatresWithTheMovie.add("IMAX");
+
         assertEquals(theatresWithTheMovie, theatresHandler.getTheatresForMovie("Sahoo"));
     }
 }

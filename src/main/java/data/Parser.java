@@ -15,11 +15,8 @@ import java.util.List;
 public class Parser {
     private BufferedReader br;
 
-    public Parser(File file) throws FileNotFoundException {
-        this.br = new BufferedReader(new FileReader(file));
-    }
-
-    List<Movie> getMovies() throws IOException, ParseException {
+    public List<Movie> getMovies(File file) throws IOException, ParseException {
+        br = new BufferedReader(new FileReader(file));
         List<Movie> movies = new ArrayList<>();
         String movie = br.readLine();
         while (movie != null) {
@@ -35,7 +32,8 @@ public class Parser {
         return movies;
     }
 
-    List<Theatre> getTheatres() throws IOException {
+    public List<Theatre> getTheatres(File theatreFile) throws IOException {
+        br = new BufferedReader(new FileReader(theatreFile));
         List<Theatre> theatres = new ArrayList<>();
         String theatre = br.readLine();
         while (theatre != null) {

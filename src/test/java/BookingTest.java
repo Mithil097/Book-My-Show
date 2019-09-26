@@ -20,7 +20,7 @@ class BookingTest {
         TheatresHandler theatresHandler = mock(TheatresHandler.class);
         Booking bookTheShow = new Booking(moviesHandler, theatresHandler);
         when(moviesHandler.getMovieNames()).thenReturn(movieNames);
-        assertEquals(movieNames, bookTheShow.listOfMovies());
+        assertEquals(movieNames, bookTheShow.getAvailableMovies());
     }
 
 

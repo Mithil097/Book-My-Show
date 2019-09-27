@@ -31,7 +31,7 @@ public class Theatre {
         return this.numberOfSeats;
     }
 
-    public List<Show> getTimings() {
+    public List<Show> getShowTimings() {
         List<Show> showTimings = shows.getTimings();
         return showTimings;
     }

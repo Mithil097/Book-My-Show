@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 
 class TheatresHandlerTest {
@@ -47,7 +45,6 @@ class TheatresHandlerTest {
 
     @Test
     void expectListOfTimingsToReturnWhenGetShowTimesCalled() {
-        List<Show> timings = new ArrayList<>();
         List<Theatre> theatres = new ArrayList<>();
         theatres.add(new Theatre("Asian", "Sahoo"));
         TheatresHandler theatresHandler = new TheatresHandler(theatres);

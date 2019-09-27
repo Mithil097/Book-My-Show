@@ -1,7 +1,7 @@
 package data;
 
-import model.Theatre;
 import model.Show;
+import model.Theatre;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,13 +45,13 @@ public class TheatresHandler {
 
     public List<String> getTimingsForTheTheatre(String theatreName) {
         List<Show> timings = null;
-        List<String> timing=new ArrayList<>();
+        List<String> timing = new ArrayList<>();
         for (Theatre theatre : theatres) {
             if (theatreName.equals(theatre.getTheatreName())) {
-                timings= theatre.getTimings();
+                timings = theatre.getShowTimings();
             }
         }
-        for (Show show :timings){
+        for (Show show : timings) {
             timing.add(show.getShowTime());
         }
         return timing;

@@ -1,11 +1,16 @@
 package model;
 
+import Theatres.Shows;
 import org.junit.jupiter.api.Test;
+import org.mockito.internal.util.reflection.FieldSetter;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class TheatreTest {
     @Test
@@ -34,13 +39,17 @@ class TheatreTest {
     }
 
     @Test
-    void expectAllShiowTimesToReturnWhenATheatreIsCreated() {
-        List<Show> timings = new ArrayList<>();
+    void expectAllShowTimesToReturnWhenATheatreIsCreated() throws NoSuchFieldException {
+        List<Show> showTimings = new ArrayList<>();
         Theatre theatreA = new Theatre("Asian-cineplex", "Sahoo");
-        timings.add(new Show("10:00AM"));
-        timings.add(new Show("1:00PM"));
-        timings.add(new Show("5:00PM"));
-        timings.add(new Show("10:00PM"));
-        assertEquals(timings, theatreA.getTimings());
+        Shows mockShows = mock(Shows.class);
+        Field executorField = theatreA.getClass().getDeclaredField("shows");
+        FieldSetter fieldSetter = new FieldSetter(theatreA, executorField);
+        fieldSetter.set(mockShows);
+        when(mockShows.getTimings()).thenReturn(showTimings);
+        showTimings.add(new Show("10:00AM"));
+        showTimings.add(new Show("1:00PM"));
+        showTimings.add(new Show("5:00PM"));
+        assertEquals(showTimings, theatreA.getShowTimings());
     }
 }

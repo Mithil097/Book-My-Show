@@ -63,4 +63,17 @@ class BookingTest {
         when(theatresHandler.getTimingsForTheTheatre("Asian")).thenReturn(timing);
         assertEquals(timing, bookTheShow.getTimingsForTheTheatre("Asian"));
     }
+
+    @Test
+    void expectExceptionToReturnWhenCallingShowTimingsForAGivenMovieWhichIsNotPresentInTheatres() {
+        MoviesHandler moviesHandler = mock(MoviesHandler.class);
+        TheatresHandler theatresHandler = mock(TheatresHandler.class);
+        try {
+            Booking bookTheShow = new Booking(moviesHandler, theatresHandler);
+            when(theatresHandler.contains("mithil")).thenReturn(false);
+            bookTheShow.getTimingsForTheTheatre("Mithil");
+        } catch (TheatreNotAvailableException exception) {
+            assertEquals("Theatre not Available", exception.getMessage());
+        }
+    }
 }

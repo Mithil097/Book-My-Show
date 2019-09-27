@@ -1,3 +1,5 @@
+package controller;
+
 import Theatres.TheatreNotAvailableException;
 import data.MoviesHandler;
 import data.TheatresHandler;
@@ -48,5 +50,9 @@ public class Booking {
 
     public List<Integer> getAvailableSeats(Show show) {
         return show.getAvailableSeats();
+    }
+
+    public void bookASeat(Show show, int seatNumber) {
+        show.bookTheSeat(seatNumber);
     }
 }

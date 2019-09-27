@@ -1,4 +1,7 @@
+package Controller;
+
 import Theatres.TheatreNotAvailableException;
+import controller.Booking;
 import data.MoviesHandler;
 import data.TheatresHandler;
 import model.Show;
@@ -10,8 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 class BookingTest {
 
@@ -103,4 +105,5 @@ class BookingTest {
         when(show.getAvailableSeats()).thenReturn(seats);
         assertEquals(seats, bookTheShow.getAvailableSeats(show));
     }
+
 }

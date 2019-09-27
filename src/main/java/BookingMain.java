@@ -3,6 +3,7 @@ import data.MoviesHandler;
 import data.Parser;
 import data.TheatresHandler;
 import model.Movie;
+import model.Show;
 import model.Theatre;
 import movies.MovieNotAvailableException;
 
@@ -28,5 +29,7 @@ public class BookingMain {
         System.out.println(booking.getTheatresForAMovie(movieName));
         String theatreName = input.nextLine();
         System.out.println(booking.getTimingsForTheTheatre(theatreName));
+        String showTiming=input.nextLine();
+        Show show=booking.getShow(theatreName,showTiming);
     }
 }

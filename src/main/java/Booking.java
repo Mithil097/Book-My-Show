@@ -1,6 +1,8 @@
 import Theatres.TheatreNotAvailableException;
 import data.MoviesHandler;
 import data.TheatresHandler;
+import model.Show;
+import model.Theatre;
 import movies.MovieNotAvailableException;
 
 import java.util.List;
@@ -36,5 +38,11 @@ public class Booking {
             return theatresHandler.getTimingsForTheTheatre(theatreName);
         }
         throw new TheatreNotAvailableException("Theatre not Available");
+    }
+
+    public Show getShow(String theatreName, String showTime) {
+        Theatre theatre=theatresHandler.getTheatre(theatreName);
+        Show show=theatre.getShow(showTime);
+        return show;
     }
 }

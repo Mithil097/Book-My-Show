@@ -1,6 +1,8 @@
 import Theatres.TheatreNotAvailableException;
 import data.MoviesHandler;
 import data.TheatresHandler;
+import model.Show;
+import model.Theatre;
 import movies.MovieNotAvailableException;
 import org.junit.jupiter.api.Test;
 
@@ -75,5 +77,17 @@ class BookingTest {
         } catch (TheatreNotAvailableException exception) {
             assertEquals("Theatre not Available", exception.getMessage());
         }
+    }
+
+    @Test
+    void expectShowToReturnWhenWeHaveTheatreNameAndShowTimings() {
+        MoviesHandler moviesHandler = mock(MoviesHandler.class);
+        TheatresHandler theatresHandler = mock(TheatresHandler.class);
+        Theatre theatre = mock(Theatre.class);
+        Show show = new Show("10:00PM");
+        Booking bookTheShow = new Booking(moviesHandler, theatresHandler);
+        when(theatresHandler.getTheatre("Asian")).thenReturn(theatre);
+        when(theatre.getShow("10:00PM")).thenReturn(show);
+        assertEquals(show, bookTheShow.getShow("Asian", "10:00PM"));
     }
 }

@@ -56,4 +56,14 @@ public class TheatresHandler {
         }
         return timing;
     }
+
+    public Theatre getTheatre(String theatreName) {
+        Theatre name = null;
+        for (Theatre theatre:theatres){
+            if (theatre.getTheatreName().equals(theatreName)) {
+                name=theatre;
+            }
+        }
+        return name;
+    }
 }

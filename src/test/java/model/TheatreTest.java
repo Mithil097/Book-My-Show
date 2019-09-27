@@ -47,9 +47,25 @@ class TheatreTest {
         FieldSetter fieldSetter = new FieldSetter(theatreA, executorField);
         fieldSetter.set(mockShows);
         when(mockShows.getTimings()).thenReturn(showTimings);
-        showTimings.add(new Show("10:00AM"));
-        showTimings.add(new Show("1:00PM"));
-        showTimings.add(new Show("5:00PM"));
+        showTimings.add(mock(Show.class));
         assertEquals(showTimings, theatreA.getShowTimings());
+    }
+
+    @Test
+    void expectShowToReturnWhenShowTimingIsCalledFromATheatre() throws NoSuchFieldException {
+        List<Show> showTimings = new ArrayList<>();
+        Theatre theatreA = new Theatre("Asian-cineplex", "Sahoo");
+        Shows mockShows = mock(Shows.class);
+        Show show1 = mock(Show.class);
+        Show show2 = mock(Show.class);
+        Field executorField = theatreA.getClass().getDeclaredField("shows");
+        FieldSetter fieldSetter = new FieldSetter(theatreA, executorField);
+        fieldSetter.set(mockShows);
+        showTimings.add(show1);
+        showTimings.add(show2);
+        when(mockShows.getTimings()).thenReturn(showTimings);
+        when(show1.getShowTime()).thenReturn("11:00PM");
+        when(show2.getShowTime()).thenReturn("1:00PM");
+        assertEquals(show2, theatreA.getShow("1:00PM"));
     }
 }

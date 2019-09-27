@@ -49,4 +49,16 @@ public class Theatre {
     public int hashCode() {
         return Objects.hash(theatreName, movieName);
     }
+
+
+    public Show getShow(String showTime) {
+        Show showTiming=null;
+        List<Show> shows=this.getShowTimings();
+        for (Show show:shows){
+            if (show.getShowTime().equals(showTime)){
+                showTiming= show;
+            }
+        }
+        return showTiming;
+    }
 }

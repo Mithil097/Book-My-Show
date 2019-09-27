@@ -1,6 +1,5 @@
 package data;
 
-import model.Show;
 import model.Theatre;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +8,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 class TheatresHandlerTest {
@@ -41,6 +40,28 @@ class TheatresHandlerTest {
         theatresWithTheMovie.add("Asian");
         theatresWithTheMovie.add("IMAX");
         assertEquals(theatresWithTheMovie, theatresHandler.getTheatresForMovie("Sahoo"));
+    }
+
+    @Test
+    void expectFalseIfTheatreIsNotPresentInTheTheatres() {
+        List<Theatre> theatres = new ArrayList<>();
+        theatres.add(new Theatre("Asian", "Sahoo"));
+        theatres.add(new Theatre("IMAX", "Sahoo"));
+        theatres.add(new Theatre("PVR", "Avengers"));
+        theatres.add(new Theatre("INOX", "Maze Runner"));
+        TheatresHandler theatresHandler = new TheatresHandler(theatres);
+        assertFalse(theatresHandler.contains("SVR"));
+    }
+
+    @Test
+    void expectTrueIfTheatreIsPresentInTheTheatres() {
+        List<Theatre> theatres = new ArrayList<>();
+        theatres.add(new Theatre("Asian", "Sahoo"));
+        theatres.add(new Theatre("IMAX", "Sahoo"));
+        theatres.add(new Theatre("PVR", "Avengers"));
+        theatres.add(new Theatre("INOX", "Maze Runner"));
+        TheatresHandler theatresHandler = new TheatresHandler(theatres);
+        assertTrue(theatresHandler.contains("PVR"));
     }
 
     @Test

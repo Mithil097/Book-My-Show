@@ -46,7 +46,7 @@ public class Movie {
     }
 
     public boolean isAvailable() {
-        if (this.status== AVAILABLE) {
+        if (this.status == AVAILABLE) {
             return true;
         }
         return false;

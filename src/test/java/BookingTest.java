@@ -1,6 +1,6 @@
-import movies.MovieNotAvailableException;
 import data.MoviesHandler;
 import data.TheatresHandler;
+import movies.MovieNotAvailableException;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -37,7 +37,6 @@ class BookingTest {
         assertEquals(theatreNames, bookTheShow.getTheatresForAMovie("Sahoo"));
     }
 
-    //todo junit way expecting exception
     @Test
     void expectExceptionToReturnWhenCallingListOfTheatresForAGivenMovieWhichIsNotPresentInMovies() {
         MoviesHandler moviesHandler = mock(MoviesHandler.class);
@@ -47,7 +46,19 @@ class BookingTest {
             when(moviesHandler.contains("mithil")).thenReturn(false);
             bookTheShow.getTheatresForAMovie("Mithil");
         } catch (MovieNotAvailableException exception) {
-            assertEquals("Movie is not Available", exception.getMessage());
+            assertEquals("Movie not Available", exception.getMessage());
         }
+    }
+
+    @Test
+    void expectListOfShowTimingsForAGivenTheatre() {
+        List<String> timing = new ArrayList<>();
+        timing.add("10:00PM");
+        timing.add("1:00PM");
+        MoviesHandler moviesHandler = mock(MoviesHandler.class);
+        TheatresHandler theatresHandler = mock(TheatresHandler.class);
+        Booking bookTheShow = new Booking(moviesHandler, theatresHandler);
+        when(theatresHandler.getShowTimes()).thenReturn(timing);
+        assertEquals(timing, bookTheShow.getShowTimingsForTheTheatre());
     }
 }

@@ -4,13 +4,14 @@ import java.util.Objects;
 
 public class Theatre {
 
-    //todo naming conventions
     private final String theatreName;
     private final String movieName;
+    private final int numberOfSeats;
 
     public Theatre(String TheatreName, String movieName) {
         this.theatreName = TheatreName;
         this.movieName = movieName;
+        this.numberOfSeats = 100;
     }
 
     public String getMovieInTheatre() {
@@ -19,6 +20,10 @@ public class Theatre {
 
     public String getTheatreName() {
         return this.theatreName;
+    }
+
+    public int getNumberOfSeats() {
+        return this.numberOfSeats;
     }
 
     @Override

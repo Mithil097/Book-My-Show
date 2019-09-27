@@ -1,10 +1,8 @@
 package data;
 
-import model.Movie;
 import model.Theatre;
+import model.Show;
 
-import java.io.IOException;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,14 +12,11 @@ public class TheatresHandler {
     private final List<Theatre> theatres;
 
     public TheatresHandler(List<Theatre> theatres) {
-        this.theatres=theatres;
+        this.theatres = theatres;
     }
-//todo take input from files
 
-
-    //todo getTheatres, getTheatresForMovie
     public List<String> getTheatresForMovie(String movieName) {
-        List<String > theatreNames = new ArrayList<>();
+        List<String> theatreNames = new ArrayList<>();
         for (Theatre theatre : theatres) {
             if (movieName.equals(theatre.getMovieInTheatre())) {
                 theatreNames.add(theatre.getTheatreName());
@@ -36,5 +31,15 @@ public class TheatresHandler {
             theatreNames += theatre.getTheatreName() + "\n";
         }
         return theatreNames;
+    }
+
+    public List<String> getShowTimes() {
+        Shows times = new Shows();
+        List<Show> timing = times.getShowTimes();
+        List<String> timings = new ArrayList<>();
+        for (Show show : timing) {
+            timings.add(show.getShowTime());
+        }
+        return timings;
     }
 }

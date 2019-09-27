@@ -23,4 +23,10 @@ class TheatreTest {
         Theatre theatreB = new Theatre("Asian-cineplex", "Sahoo");
         assertEquals(theatreA, theatreB);
     }
+
+    @Test
+    void expect100SeatsInitiallyWhenATheatreIsCreated() {
+        Theatre theatreA = new Theatre("Asian-cineplex", "Sahoo");
+        assertEquals(100, theatreA.getNumberOfSeats());
+    }
 }

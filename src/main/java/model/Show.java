@@ -1,14 +1,19 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Show {
     private final String time;
     private final int numberOfSeats;
+    private List<Integer> allSeats=new ArrayList<>();
+    private List<Integer> availableSeats=new ArrayList<>();
+    private List<Integer> notAvailableSeats=new ArrayList<>();
 
     public Show(String time) {
         this.time = time;
-        this.numberOfSeats = 100;
+        this.numberOfSeats = 10;
     }
 
     public String getShowTime() {
@@ -29,4 +34,19 @@ public class Show {
         return Objects.hash(time, numberOfSeats);
     }
 
+    public List<Integer> getAllSeats(){
+        for (int i=1;i<=numberOfSeats;i++){
+            allSeats.add(i);
+        }
+        return allSeats;
+    }
+    public List<Integer> getAvailableSeats() {
+        List<Integer> Seats=getAllSeats();
+        for (int i:Seats){
+            if (!notAvailableSeats.contains(i)){
+                availableSeats.add(i);
+            }
+        }
+        return availableSeats;
+    }
 }

@@ -90,4 +90,17 @@ class BookingTest {
         when(theatre.getShow("10:00PM")).thenReturn(show);
         assertEquals(show, bookTheShow.getShow("Asian", "10:00PM"));
     }
+
+    @Test
+    void expectAvailableSeatsToReturnWhenBookingCallsGetAvailableSeats() {
+        MoviesHandler moviesHandler = mock(MoviesHandler.class);
+        TheatresHandler theatresHandler = mock(TheatresHandler.class);
+        Show show = mock(Show.class);
+        List<Integer> seats=new ArrayList();
+        seats.add(1);
+        seats.add(2);
+        Booking bookTheShow = new Booking(moviesHandler, theatresHandler);
+        when(show.getAvailableSeats()).thenReturn(seats);
+        assertEquals(seats, bookTheShow.getAvailableSeats(show));
+    }
 }

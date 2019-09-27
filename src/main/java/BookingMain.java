@@ -31,5 +31,6 @@ public class BookingMain {
         System.out.println(booking.getTimingsForTheTheatre(theatreName));
         String showTiming=input.nextLine();
         Show show=booking.getShow(theatreName,showTiming);
+        System.out.println(booking.getAvailableSeats(show));
     }
 }

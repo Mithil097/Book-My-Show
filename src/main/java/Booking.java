@@ -45,4 +45,8 @@ public class Booking {
         Show show=theatre.getShow(showTime);
         return show;
     }
+
+    public List<Integer> getAvailableSeats(Show show) {
+        return show.getAvailableSeats();
+    }
 }

@@ -1,4 +1,4 @@
-package data;
+package Theatres;
 
 import model.Show;
 
@@ -15,7 +15,7 @@ public class Shows {
         showTimings.add(new Show("10:00PM"));
     }
 
-    public List<Show> getShowTimes() {
+    public List<Show> getTimings() {
         return showTimings;
     }
 }

@@ -14,7 +14,7 @@ class MovieTest {
     @Test
     void expectTheDetailsOfTheMovieAvengers() {
         Movie avengers = new Movie("Avengers", ENGLISH, new Date(2018 - 12 - 1), Status.AVAILABLE);
-        assertEquals("Avengers\tENGLISH\tWed Jan 01 00:00:00 IST 3919", avengers.getDetails());
+        assertEquals("Avengers\tENGLISH\tThu Jan 01 05:30:02 IST 1970", avengers.getDetails());
     }
 
     @Test

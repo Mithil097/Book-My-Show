@@ -1,3 +1,4 @@
+import Theatres.TheatreNotAvailableException;
 import data.MoviesHandler;
 import data.TheatresHandler;
 import movies.MovieNotAvailableException;
@@ -30,8 +31,10 @@ public class Booking {
         throw new MovieNotAvailableException("Movie not Available");
     }
 
-    public List<String> getShowTimingsForTheTheatre() {
-        List<String> timing = theatresHandler.getShowTimes();
-        return timing;
+    public List<String> getTimingsForTheTheatre(String theatreName) throws TheatreNotAvailableException {
+        if (theatresHandler.contains(theatreName)){
+            return theatresHandler.getTimingsForTheTheatre(theatreName);
+        }
+        throw new TheatreNotAvailableException("Theatre not Available");
     }
 }

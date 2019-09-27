@@ -1,3 +1,4 @@
+import Theatres.TheatreNotAvailableException;
 import data.MoviesHandler;
 import data.TheatresHandler;
 import movies.MovieNotAvailableException;
@@ -51,14 +52,15 @@ class BookingTest {
     }
 
     @Test
-    void expectListOfShowTimingsForAGivenTheatre() {
+    void expectListOfShowTimingsForAGivenTheatre() throws TheatreNotAvailableException {
         List<String> timing = new ArrayList<>();
         timing.add("10:00PM");
         timing.add("1:00PM");
         MoviesHandler moviesHandler = mock(MoviesHandler.class);
         TheatresHandler theatresHandler = mock(TheatresHandler.class);
         Booking bookTheShow = new Booking(moviesHandler, theatresHandler);
-        when(theatresHandler.getShowTimes()).thenReturn(timing);
-        assertEquals(timing, bookTheShow.getShowTimingsForTheTheatre());
+        when(theatresHandler.contains("Asian")).thenReturn(true);
+        when(theatresHandler.getTimingsForTheTheatre("Asian")).thenReturn(timing);
+        assertEquals(timing, bookTheShow.getTimingsForTheTheatre("Asian"));
     }
 }

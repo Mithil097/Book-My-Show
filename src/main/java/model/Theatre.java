@@ -1,5 +1,8 @@
 package model;
 
+import Theatres.Shows;
+
+import java.util.List;
 import java.util.Objects;
 
 public class Theatre {
@@ -7,10 +10,12 @@ public class Theatre {
     private final String theatreName;
     private final String movieName;
     private final int numberOfSeats;
+    private final Shows shows;
 
     public Theatre(String TheatreName, String movieName) {
         this.theatreName = TheatreName;
         this.movieName = movieName;
+        this.shows =new Shows();
         this.numberOfSeats = 100;
     }
 
@@ -24,6 +29,11 @@ public class Theatre {
 
     public int getNumberOfSeats() {
         return this.numberOfSeats;
+    }
+
+    public List<Show> getTimings() {
+        List<Show> showTimings = shows.getTimings();
+        return showTimings;
     }
 
     @Override

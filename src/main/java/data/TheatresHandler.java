@@ -33,13 +33,27 @@ public class TheatresHandler {
         return theatreNames;
     }
 
-    public List<String> getShowTimes() {
-        Shows times = new Shows();
-        List<Show> timing = times.getShowTimes();
-        List<String> timings = new ArrayList<>();
-        for (Show show : timing) {
-            timings.add(show.getShowTime());
+
+    public boolean contains(String theatreName) {
+        for (Theatre theatre : theatres) {
+            if (theatre.getTheatreName().equals(theatreName)) {
+                return true;
+            }
         }
-        return timings;
+        return false;
+    }
+
+    public List<String> getTimingsForTheTheatre(String theatreName) {
+        List<Show> timings = null;
+        List<String> timing=new ArrayList<>();
+        for (Theatre theatre : theatres) {
+            if (theatreName.equals(theatre.getTheatreName())) {
+                timings= theatre.getTimings();
+            }
+        }
+        for (Show show :timings){
+            timing.add(show.getShowTime());
+        }
+        return timing;
     }
 }

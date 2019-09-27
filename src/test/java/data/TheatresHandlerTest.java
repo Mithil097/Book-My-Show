@@ -56,6 +56,6 @@ class TheatresHandlerTest {
         times.add("1:00PM");
         times.add("5:00PM");
         times.add("10:00PM");
-        assertEquals(times, theatresHandler.getShowTimes());
+        assertEquals(times, theatresHandler.getTimingsForTheTheatre("Asian"));
     }
 }

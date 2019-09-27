@@ -1,3 +1,4 @@
+import Theatres.TheatreNotAvailableException;
 import data.MoviesHandler;
 import data.Parser;
 import data.TheatresHandler;
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class BookingMain {
-    public static void main(String[] args) throws IOException, ParseException, MovieNotAvailableException {
+    public static void main(String[] args) throws IOException, ParseException, MovieNotAvailableException, TheatreNotAvailableException {
         Scanner input = new Scanner(System.in);
         File movieFile = new File("/Users/mithil.kumar/Desktop/BookMyShow/BookMyShow/src/main/resources/movies.txt");
         File theatreFile = new File("/Users/mithil.kumar/Desktop/BookMyShow/BookMyShow/src/main/resources/Theatres.txt");
@@ -26,6 +27,6 @@ public class BookingMain {
         String movieName = input.nextLine();
         System.out.println(booking.getTheatresForAMovie(movieName));
         String theatreName = input.nextLine();
-        System.out.println(booking.getShowTimingsForTheTheatre());
+        System.out.println(booking.getTimingsForTheTheatre(theatreName));
     }
 }

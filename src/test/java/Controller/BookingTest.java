@@ -13,7 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class BookingTest {
 
@@ -46,6 +47,7 @@ class BookingTest {
     void expectExceptionToReturnWhenCallingListOfTheatresForAGivenMovieWhichIsNotPresentInMovies() {
         MoviesHandler moviesHandler = mock(MoviesHandler.class);
         TheatresHandler theatresHandler = mock(TheatresHandler.class);
+        //todo better way to expect exception
         try {
             Booking bookTheShow = new Booking(moviesHandler, theatresHandler);
             when(moviesHandler.contains("mithil")).thenReturn(false);
@@ -72,6 +74,7 @@ class BookingTest {
     void expectExceptionToReturnWhenCallingShowTimingsForAGivenMovieWhichIsNotPresentInTheatres() {
         MoviesHandler moviesHandler = mock(MoviesHandler.class);
         TheatresHandler theatresHandler = mock(TheatresHandler.class);
+        //todo
         try {
             Booking bookTheShow = new Booking(moviesHandler, theatresHandler);
             when(theatresHandler.contains("mithil")).thenReturn(false);
@@ -98,7 +101,7 @@ class BookingTest {
         MoviesHandler moviesHandler = mock(MoviesHandler.class);
         TheatresHandler theatresHandler = mock(TheatresHandler.class);
         Show show = mock(Show.class);
-        List<Integer> seats=new ArrayList();
+        List<Integer> seats = new ArrayList();
         seats.add(1);
         seats.add(2);
         Booking bookTheShow = new Booking(moviesHandler, theatresHandler);

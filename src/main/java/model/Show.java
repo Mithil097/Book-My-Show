@@ -7,13 +7,13 @@ import java.util.Objects;
 public class Show {
     private final String time;
     private final int numberOfSeats;
-    private List<Integer> availableSeats=new ArrayList<>();
-    private List<Integer> notAvailableSeats=new ArrayList<>();
+    private List<Integer> availableSeats = new ArrayList<>();
+    private List<Integer> notAvailableSeats = new ArrayList<>();
 
     public Show(String time) {
         this.time = time;
         this.numberOfSeats = 10;
-        for (int i=1;i<=numberOfSeats;i++) {
+        for (int i = 1; i <= numberOfSeats; i++) {
             availableSeats.add(i);
         }
     }

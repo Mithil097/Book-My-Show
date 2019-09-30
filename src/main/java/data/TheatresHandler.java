@@ -59,9 +59,9 @@ public class TheatresHandler {
 
     public Theatre getTheatre(String theatreName) {
         Theatre name = null;
-        for (Theatre theatre:theatres){
+        for (Theatre theatre : theatres) {
             if (theatre.getTheatreName().equals(theatreName)) {
-                name=theatre;
+                name = theatre;
             }
         }
         return name;

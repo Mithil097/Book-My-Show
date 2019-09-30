@@ -4,9 +4,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Display {
-    Scanner input=new Scanner(System.in);
+    Scanner input = new Scanner(System.in);
+
     public void showAvailableMovies(List<String> availableMovies) {
-        for (String movie:availableMovies){
+        for (String movie : availableMovies) {
             System.out.println(movie);
         }
     }
@@ -20,13 +21,13 @@ public class Display {
     }
 
     public void showTheatres(List<String> theatresForAMovie) {
-        for (String theatre:theatresForAMovie){
+        for (String theatre : theatresForAMovie) {
             System.out.println(theatre);
         }
     }
 
     public void showTimings(List<String> timingsForTheTheatre) {
-        for (String timings:timingsForTheTheatre){
+        for (String timings : timingsForTheTheatre) {
             System.out.println(timings);
         }
     }
@@ -36,8 +37,8 @@ public class Display {
     }
 
     public void showAvailableSeats(List<Integer> availableSeats) {
-        for (int seat:availableSeats){
-            System.out.print(seat+"\t");
+        for (int seat : availableSeats) {
+            System.out.print(seat + "\t");
         }
         System.out.println("\n");
     }
@@ -51,12 +52,16 @@ public class Display {
     }
 
     public void generateTicket(String userName, String movieName, String theatreName, String showTiming, int seatNumber) {
-        System.out.println("Person name\t"+userName);
-        System.out.println("Movie name\t"+movieName);
-        System.out.println("Theatre name\t"+theatreName);
-        System.out.println("ShowTimings\t"+showTiming);
-        System.out.println("Seat Number:\t"+seatNumber);
+        System.out.println("Person name\t" + userName);
+        System.out.println("Movie name\t" + movieName);
+        System.out.println("Theatre name\t" + theatreName);
+        System.out.println("ShowTimings\t" + showTiming);
+        System.out.println("Seat Number:\t" + seatNumber);
 
     }
 
+    public String selectAOption() {
+        System.out.println("1.Book A Movie\n2.Quit");
+        return input.nextLine();
+    }
 }

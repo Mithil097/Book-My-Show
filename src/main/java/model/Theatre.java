@@ -9,13 +9,14 @@ public class Theatre {
 
     private final String theatreName;
     private final String movieName;
+    //todo
     private final int numberOfSeats;
     private final Shows shows;
 
     public Theatre(String TheatreName, String movieName) {
         this.theatreName = TheatreName;
         this.movieName = movieName;
-        this.shows =new Shows();
+        this.shows = new Shows();
         this.numberOfSeats = 100;
     }
 
@@ -52,11 +53,11 @@ public class Theatre {
 
 
     public Show getShow(String showTime) {
-        Show showTiming=null;
-        List<Show> shows=this.getShowTimings();
-        for (Show show:shows){
-            if (show.getShowTime().equals(showTime)){
-                showTiming= show;
+        Show showTiming = null;
+        List<Show> shows = this.getShowTimings();
+        for (Show show : shows) {
+            if (show.getShowTime().equals(showTime)) {
+                showTiming = show;
             }
         }
         return showTiming;

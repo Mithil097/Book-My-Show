@@ -36,15 +36,15 @@ public class Booking {
     }
 
     public List<String> getTimingsForTheTheatre(String theatreName) throws TheatreNotAvailableException {
-        if (theatresHandler.contains(theatreName)){
+        if (theatresHandler.contains(theatreName)) {
             return theatresHandler.getTimingsForTheTheatre(theatreName);
         }
         throw new TheatreNotAvailableException("Theatre not Available");
     }
 
     public Show getShow(String theatreName, String showTime) {
-        Theatre theatre=theatresHandler.getTheatre(theatreName);
-        Show show=theatre.getShow(showTime);
+        Theatre theatre = theatresHandler.getTheatre(theatreName);
+        Show show = theatre.getShow(showTime);
         return show;
     }
 

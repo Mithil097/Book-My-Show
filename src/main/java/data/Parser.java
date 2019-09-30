@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+//todo class variable require?
 public class Parser {
     private BufferedReader br;
 
@@ -36,6 +36,7 @@ public class Parser {
     }
 
     public List<Theatre> getTheatres(File theatreFile) throws IOException {
+
         br = new BufferedReader(new FileReader(theatreFile));
         List<Theatre> theatres = new ArrayList<>();
         String theatre = br.readLine();

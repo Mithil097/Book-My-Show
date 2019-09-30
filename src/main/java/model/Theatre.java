@@ -10,14 +10,12 @@ public class Theatre {
     private final String theatreName;
     private final String movieName;
     //todo
-    private final int numberOfSeats;
     private final Shows shows;
 
     public Theatre(String TheatreName, String movieName) {
         this.theatreName = TheatreName;
         this.movieName = movieName;
         this.shows = new Shows();
-        this.numberOfSeats = 100;
     }
 
     public String getMovieInTheatre() {
@@ -26,10 +24,6 @@ public class Theatre {
 
     public String getTheatreName() {
         return this.theatreName;
-    }
-
-    public int getNumberOfSeats() {
-        return this.numberOfSeats;
     }
 
     public List<Show> getShowTimings() {

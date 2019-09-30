@@ -14,7 +14,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-//todo class variable require?
 public class Parser {
     private BufferedReader br;
 

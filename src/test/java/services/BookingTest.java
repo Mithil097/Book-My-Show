@@ -1,7 +1,7 @@
-package Controller;
+package services;
 
 import Theatres.TheatreNotAvailableException;
-import controller.Booking;
+import services.Booking;
 import data.MoviesHandler;
 import data.TheatresHandler;
 import model.Show;

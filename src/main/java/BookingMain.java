@@ -1,5 +1,5 @@
 import Theatres.TheatreNotAvailableException;
-import controller.Booking;
+import services.Booking;
 import controller.BookingController;
 import data.MoviesHandler;
 import data.Parser;

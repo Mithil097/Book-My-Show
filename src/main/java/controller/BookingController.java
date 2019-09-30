@@ -4,6 +4,7 @@ import Theatres.TheatreNotAvailableException;
 import display.Display;
 import model.Show;
 import movies.MovieNotAvailableException;
+import services.Booking;
 
 public class BookingController {
 

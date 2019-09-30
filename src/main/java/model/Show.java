@@ -8,7 +8,6 @@ public class Show {
     private final String time;
     private final int numberOfSeats;
     private List<Integer> availableSeats = new ArrayList<>();
-    private List<Integer> notAvailableSeats = new ArrayList<>();
 
     public Show(String time) {
         this.time = time;
@@ -41,7 +40,6 @@ public class Show {
     }
 
     public void bookTheSeat(int seatNumber) {
-        notAvailableSeats.add(seatNumber);
         availableSeats.remove(Integer.valueOf(seatNumber));
     }
 }

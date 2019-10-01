@@ -5,6 +5,7 @@ import data.MoviesHandler;
 import data.TheatresHandler;
 import model.Show;
 import model.Theatre;
+import model.Ticket;
 import movies.MovieNotAvailableException;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class Booking {
     private static final Logger logger = Logger.getLogger(Booking.class.getName());
     private final MoviesHandler moviesHandler;
     private final TheatresHandler theatresHandler;
-    private Payment payment=new PaymentHandler();
+    private Ticket ticket=new Ticket();
 
 
     public Booking(MoviesHandler moviesHandler, TheatresHandler theatresHandler) {
@@ -55,4 +56,7 @@ public class Booking {
         show.bookTheSeat(seatNumber,money);
     }
 
+    public void generateTicket(String userName, String movieName, String theatreName, String showTiming, int seatNumber, Double money) {
+        ticket.getTicket();
+    }
 }

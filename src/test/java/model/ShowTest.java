@@ -53,7 +53,7 @@ public class ShowTest {
     @Test
     void expectToVerifyPaymentIsCalled() throws NoSuchFieldException, MoneyNotCorrectException {
         Show show = new Show("11:00AM");
-        Payment mockPayment = mock(PaymentHandler.class);
+        PaymentHandler mockPayment = mock(PaymentHandler.class);
         Field executorField = show.getClass().getDeclaredField("payment");
         FieldSetter fieldSetter = new FieldSetter(show, executorField);
         fieldSetter.set(mockPayment);

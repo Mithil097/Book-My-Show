@@ -11,8 +11,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.*;
 
@@ -115,4 +114,15 @@ class BookingTest {
         verify(show).bookTheSeat(anyInt(), anyDouble());
     }
 
+    @Test
+    void expectMoneyNotCorrectException() {
+        Throwable exception = assertThrows(MoneyNotCorrectException.class, () -> {
+            MoviesHandler moviesHandler = mock(MoviesHandler.class);
+        TheatresHandler theatresHandler = mock(TheatresHandler.class);
+        Show show = new Show("11:00PM");
+        Booking bookTheShow = new Booking(moviesHandler, theatresHandler);
+        bookTheShow.bookASeat(show, 2, 10.0);
+     });
+        assertEquals("Money is not correct",exception.getMessage());
+    }
 }

@@ -12,7 +12,7 @@ public class Show {
     private final String time;
     private final int numberOfSeats;
     private List<Integer> availableSeats = new ArrayList<>();
-    private Payment payment=new PaymentHandler();
+    private Payment payment= new PaymentHandler();
 
     public Show(String time) {
         this.time = time;

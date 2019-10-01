@@ -1,6 +1,7 @@
 package services;
 
 import Theatres.TheatreNotAvailableException;
+import org.junit.jupiter.api.function.Executable;
 import services.Booking;
 import data.MoviesHandler;
 import data.TheatresHandler;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.*;
 
@@ -45,15 +47,14 @@ class BookingTest {
 
     @Test
     void expectExceptionToReturnWhenCallingListOfTheatresForAGivenMovieWhichIsNotPresentInMovies() {
-        MoviesHandler moviesHandler = mock(MoviesHandler.class);
-        TheatresHandler theatresHandler = mock(TheatresHandler.class);
-        try {
+        Throwable exception = assertThrows(MovieNotAvailableException.class,()-> {
+            MoviesHandler moviesHandler = mock(MoviesHandler.class);
+            TheatresHandler theatresHandler = mock(TheatresHandler.class);
             Booking bookTheShow = new Booking(moviesHandler, theatresHandler);
             when(moviesHandler.contains("mithil")).thenReturn(false);
             bookTheShow.getTheatresForAMovie("Mithil");
-        } catch (MovieNotAvailableException exception) {
-            assertEquals("Movie not Available", exception.getMessage());
-        }
+        });
+        assertEquals("Movie not Available", exception.getMessage());
     }
 
     @Test
@@ -71,16 +72,14 @@ class BookingTest {
 
     @Test
     void expectExceptionToReturnWhenCallingShowTimingsForAGivenMovieWhichIsNotPresentInTheatres() {
-        MoviesHandler moviesHandler = mock(MoviesHandler.class);
-        TheatresHandler theatresHandler = mock(TheatresHandler.class);
-        //todo
-        try {
-            Booking bookTheShow = new Booking(moviesHandler, theatresHandler);
-            when(theatresHandler.contains("mithil")).thenReturn(false);
-            bookTheShow.getTimingsForTheTheatre("Mithil");
-        } catch (TheatreNotAvailableException exception) {
-            assertEquals("Theatre not Available", exception.getMessage());
-        }
+        Throwable exception = assertThrows(TheatreNotAvailableException.class,()-> {
+                MoviesHandler moviesHandler = mock(MoviesHandler.class);
+                TheatresHandler theatresHandler = mock(TheatresHandler.class);
+                Booking bookTheShow = new Booking(moviesHandler, theatresHandler);
+                when(theatresHandler.contains("mithil")).thenReturn(false);
+                bookTheShow.getTimingsForTheTheatre("Mithil");
+        });
+        assertEquals("Theatre not Available", exception.getMessage());
     }
 
     @Test

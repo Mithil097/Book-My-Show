@@ -23,8 +23,7 @@ public class Booking {
     }
 
     public List<String> getAvailableMovies() {
-        List<String> movieNames = moviesHandler.getMovieNames();
-        return movieNames;
+        return moviesHandler.getMovieNames();
     }
 
     public List<String> getTheatresForAMovie(String movieName) throws MovieNotAvailableException {
@@ -44,8 +43,7 @@ public class Booking {
 
     public Show getShow(String theatreName, String showTime) {
         Theatre theatre = theatresHandler.getTheatre(theatreName);
-        Show show = theatre.getShow(showTime);
-        return show;
+        return theatre.getShow(showTime);
     }
 
     public List<Integer> getAvailableSeats(Show show) {
@@ -55,4 +53,5 @@ public class Booking {
     public void bookASeat(Show show, int seatNumber) {
         show.bookTheSeat(seatNumber);
     }
+
 }

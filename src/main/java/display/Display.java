@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Display {
-    Scanner input = new Scanner(System.in);
+    private Scanner input = new Scanner(System.in);
 
     public void showAvailableMovies(List<String> availableMovies) {
         for (String movie : availableMovies) {

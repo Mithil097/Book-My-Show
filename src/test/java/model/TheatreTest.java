@@ -33,12 +33,6 @@ class TheatreTest {
     }
 
     @Test
-    void expect100SeatsInitiallyWhenATheatreIsCreated() {
-        Theatre theatreA = new Theatre("Asian-cineplex", "Sahoo");
-        assertEquals(100, theatreA.getNumberOfSeats());
-    }
-
-    @Test
     void expectAllShowTimesToReturnWhenATheatreIsCreated() throws NoSuchFieldException {
         List<Show> showTimings = new ArrayList<>();
         Theatre theatreA = new Theatre("Asian-cineplex", "Sahoo");

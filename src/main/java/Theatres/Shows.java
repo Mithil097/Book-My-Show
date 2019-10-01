@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Shows {
-    List<Show> showTimings = new ArrayList<>();
+    private List<Show> showTimings = new ArrayList<>();
 
     public Shows() {
         showTimings.add(new Show("10:00AM"));

@@ -27,8 +27,7 @@ public class Theatre {
     }
 
     public List<Show> getShowTimings() {
-        List<Show> showTimings = shows.getTimings();
-        return showTimings;
+        return shows.getTimings();
     }
 
     @Override

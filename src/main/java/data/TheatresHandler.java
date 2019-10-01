@@ -26,11 +26,11 @@ public class TheatresHandler {
     }
 
     public String getAllTheatreNames() {
-        String theatreNames = "";
+        StringBuilder theatreNames = new StringBuilder();
         for (Theatre theatre : theatres) {
-            theatreNames += theatre.getTheatreName() + "\n";
+            theatreNames.append(theatre.getTheatreName()).append("\n");
         }
-        return theatreNames;
+        return theatreNames.toString();
     }
 
 
@@ -51,6 +51,7 @@ public class TheatresHandler {
                 timings = theatre.getShowTimings();
             }
         }
+        assert timings != null;
         for (Show show : timings) {
             timing.add(show.getShowTime());
         }

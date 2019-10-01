@@ -1,5 +1,8 @@
 package model;
 
+import services.Payment;
+import services.PaymentHandler;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -8,6 +11,7 @@ public class Show {
     private final String time;
     private final int numberOfSeats;
     private List<Integer> availableSeats = new ArrayList<>();
+    private Payment payment=new PaymentHandler();
 
     public Show(String time) {
         this.time = time;
@@ -40,6 +44,7 @@ public class Show {
     }
 
     public void bookTheSeat(int seatNumber) {
+        payment.cash(100.0);
         availableSeats.remove(Integer.valueOf(seatNumber));
     }
 }

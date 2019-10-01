@@ -1,11 +1,12 @@
 package Controller;
 
 import Theatres.TheatreNotAvailableException;
-import services.Booking;
 import controller.BookingController;
 import display.Display;
 import movies.MovieNotAvailableException;
 import org.junit.jupiter.api.Test;
+import services.Booking;
+import services.MoneyNotCorrectException;
 
 import static org.mockito.Matchers.*;
 import static org.mockito.Mockito.mock;
@@ -15,7 +16,7 @@ public class BookingControllerTest {
 
 
     @Test
-    void expectToPrintAvailableMoviesWhenDisplayCallsAvailableMovies() throws MovieNotAvailableException, TheatreNotAvailableException {
+    void expectToPrintAvailableMoviesWhenDisplayCallsAvailableMovies() throws MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException {
         Display display = mock(Display.class);
         Booking booking = mock(Booking.class);
         BookingController bookingController = new BookingController(booking, display);
@@ -24,7 +25,7 @@ public class BookingControllerTest {
     }
 
     @Test
-    void expectMovieNameToReturnWhenDisplayCallsGetMovieName() throws MovieNotAvailableException, TheatreNotAvailableException {
+    void expectMovieNameToReturnWhenDisplayCallsGetMovieName() throws MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException {
         Display display = mock(Display.class);
         Booking booking = mock(Booking.class);
         BookingController bookingController = new BookingController(booking, display);
@@ -33,7 +34,7 @@ public class BookingControllerTest {
     }
 
     @Test
-    void expectToPrintTheatresNameWhenDisplayCallsShowTheatres() throws MovieNotAvailableException, TheatreNotAvailableException {
+    void expectToPrintTheatresNameWhenDisplayCallsShowTheatres() throws MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException {
         Display display = mock(Display.class);
         Booking booking = mock(Booking.class);
         BookingController bookingController = new BookingController(booking, display);
@@ -42,7 +43,7 @@ public class BookingControllerTest {
     }
 
     @Test
-    void expectToPrintShowTimingsWhenDisplayCallsShowTimingsForATheatre() throws MovieNotAvailableException, TheatreNotAvailableException {
+    void expectToPrintShowTimingsWhenDisplayCallsShowTimingsForATheatre() throws MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException {
         Display display = mock(Display.class);
         Booking booking = mock(Booking.class);
         BookingController bookingController = new BookingController(booking, display);
@@ -51,7 +52,7 @@ public class BookingControllerTest {
     }
 
     @Test
-    void expectGetTheInputTimingOfTheShowFromConsole() throws MovieNotAvailableException, TheatreNotAvailableException {
+    void expectGetTheInputTimingOfTheShowFromConsole() throws MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException {
         Display display = mock(Display.class);
         Booking booking = mock(Booking.class);
         BookingController bookingController = new BookingController(booking, display);
@@ -60,7 +61,7 @@ public class BookingControllerTest {
     }
 
     @Test
-    void expectToShowATicketForABookingOfASeat() throws MovieNotAvailableException, TheatreNotAvailableException {
+    void expectToShowATicketForABookingOfASeat() throws MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException {
         Display display = mock(Display.class);
         Booking booking = mock(Booking.class);
         BookingController bookingController = new BookingController(booking, display);
@@ -69,7 +70,7 @@ public class BookingControllerTest {
     }
 
     @Test
-    void expectToShowAvailableSeatsForAParticularSelected() throws MovieNotAvailableException, TheatreNotAvailableException {
+    void expectToShowAvailableSeatsForAParticularSelected() throws MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException {
         Display display = mock(Display.class);
         Booking booking = mock(Booking.class);
         BookingController bookingController = new BookingController(booking, display);
@@ -78,7 +79,7 @@ public class BookingControllerTest {
     }
 
     @Test
-    void expectToGetASeatNumberFromTheConsole() throws MovieNotAvailableException, TheatreNotAvailableException {
+    void expectToGetASeatNumberFromTheConsole() throws MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException {
         Display display = mock(Display.class);
         Booking booking = mock(Booking.class);
         BookingController bookingController = new BookingController(booking, display);
@@ -87,7 +88,7 @@ public class BookingControllerTest {
     }
 
     @Test
-    void expectToGetAUserNameFromTheConsole() throws MovieNotAvailableException, TheatreNotAvailableException {
+    void expectToGetAUserNameFromTheConsole() throws MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException {
         Display display = mock(Display.class);
         Booking booking = mock(Booking.class);
         BookingController bookingController = new BookingController(booking, display);
@@ -96,7 +97,7 @@ public class BookingControllerTest {
     }
 
     @Test
-    void expectToCallAvailableMoviesInBookingToGetMovies() throws MovieNotAvailableException, TheatreNotAvailableException {
+    void expectToCallAvailableMoviesInBookingToGetMovies() throws MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException {
         Display display = mock(Display.class);
         Booking booking = mock(Booking.class);
         BookingController bookingController = new BookingController(booking, display);
@@ -105,7 +106,7 @@ public class BookingControllerTest {
     }
 
     @Test
-    void expectToGetTheatresNamesForAMovieToReturn() throws MovieNotAvailableException, TheatreNotAvailableException {
+    void expectToGetTheatresNamesForAMovieToReturn() throws MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException {
         Display display = mock(Display.class);
         Booking booking = mock(Booking.class);
         BookingController bookingController = new BookingController(booking, display);
@@ -114,7 +115,7 @@ public class BookingControllerTest {
     }
 
     @Test
-    void expectTheatreTimingsToReturnWhenATheatre() throws MovieNotAvailableException, TheatreNotAvailableException {
+    void expectTheatreTimingsToReturnWhenATheatre() throws MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException {
         Display display = mock(Display.class);
         Booking booking = mock(Booking.class);
         BookingController bookingController = new BookingController(booking, display);
@@ -123,7 +124,7 @@ public class BookingControllerTest {
     }
 
     @Test
-    void expectAvailableSeatsToReturnWhenShowIsSelectedInATheatre() throws MovieNotAvailableException, TheatreNotAvailableException {
+    void expectAvailableSeatsToReturnWhenShowIsSelectedInATheatre() throws MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException {
         Display display = mock(Display.class);
         Booking booking = mock(Booking.class);
         BookingController bookingController = new BookingController(booking, display);
@@ -132,12 +133,12 @@ public class BookingControllerTest {
     }
 
     @Test
-    void expectToBookASeatForParticularSeatAndShow() throws MovieNotAvailableException, TheatreNotAvailableException {
+    void expectToBookASeatForParticularSeatAndShow() throws MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException {
         Display display = mock(Display.class);
         Booking booking = mock(Booking.class);
         BookingController bookingController = new BookingController(booking, display);
         bookingController.run();
-        verify(booking).bookASeat(any(), anyInt());
+        verify(booking).bookASeat(any(), anyInt(), anyDouble());
     }
 
 }

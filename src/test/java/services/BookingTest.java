@@ -1,8 +1,6 @@
 package services;
 
 import Theatres.TheatreNotAvailableException;
-import org.junit.jupiter.api.function.Executable;
-import services.Booking;
 import data.MoviesHandler;
 import data.TheatresHandler;
 import model.Show;
@@ -47,7 +45,7 @@ class BookingTest {
 
     @Test
     void expectExceptionToReturnWhenCallingListOfTheatresForAGivenMovieWhichIsNotPresentInMovies() {
-        Throwable exception = assertThrows(MovieNotAvailableException.class,()-> {
+        Throwable exception = assertThrows(MovieNotAvailableException.class, () -> {
             MoviesHandler moviesHandler = mock(MoviesHandler.class);
             TheatresHandler theatresHandler = mock(TheatresHandler.class);
             Booking bookTheShow = new Booking(moviesHandler, theatresHandler);
@@ -72,12 +70,12 @@ class BookingTest {
 
     @Test
     void expectExceptionToReturnWhenCallingShowTimingsForAGivenMovieWhichIsNotPresentInTheatres() {
-        Throwable exception = assertThrows(TheatreNotAvailableException.class,()-> {
-                MoviesHandler moviesHandler = mock(MoviesHandler.class);
-                TheatresHandler theatresHandler = mock(TheatresHandler.class);
-                Booking bookTheShow = new Booking(moviesHandler, theatresHandler);
-                when(theatresHandler.contains("mithil")).thenReturn(false);
-                bookTheShow.getTimingsForTheTheatre("Mithil");
+        Throwable exception = assertThrows(TheatreNotAvailableException.class, () -> {
+            MoviesHandler moviesHandler = mock(MoviesHandler.class);
+            TheatresHandler theatresHandler = mock(TheatresHandler.class);
+            Booking bookTheShow = new Booking(moviesHandler, theatresHandler);
+            when(theatresHandler.contains("mithil")).thenReturn(false);
+            bookTheShow.getTimingsForTheTheatre("Mithil");
         });
         assertEquals("Theatre not Available", exception.getMessage());
     }
@@ -108,13 +106,13 @@ class BookingTest {
     }
 
     @Test
-    void expectSeatIsBookedForAParticularSelectedShow() {
+    void expectSeatIsBookedForAParticularSelectedShow() throws MoneyNotCorrectException {
         MoviesHandler moviesHandler = mock(MoviesHandler.class);
         TheatresHandler theatresHandler = mock(TheatresHandler.class);
         Show show = mock(Show.class);
         Booking bookTheShow = new Booking(moviesHandler, theatresHandler);
-        bookTheShow.bookASeat(show,2);
-        verify(show).bookTheSeat(anyInt());
+        bookTheShow.bookASeat(show, 2, 100.0);
+        verify(show).bookTheSeat(anyInt(), anyDouble());
     }
 
 }

@@ -1,5 +1,6 @@
 package model;
 
+import services.MoneyNotCorrectException;
 import services.Payment;
 import services.PaymentHandler;
 
@@ -43,8 +44,8 @@ public class Show {
         return availableSeats;
     }
 
-    public void bookTheSeat(int seatNumber) {
-        payment.cash(100.0);
+    public void bookTheSeat(int seatNumber,Double money) throws MoneyNotCorrectException {
+        payment.cash(money);
         availableSeats.remove(Integer.valueOf(seatNumber));
     }
 }

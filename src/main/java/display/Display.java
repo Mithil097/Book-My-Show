@@ -13,10 +13,12 @@ public class Display {
     }
 
     public String getMovieName() {
+        System.out.println("Enter the Movie Name");
         return input.nextLine();
     }
 
     public String getTheatreName() {
+        System.out.println("Enter the Theatre Name");
         return input.nextLine();
     }
 
@@ -33,6 +35,7 @@ public class Display {
     }
 
     public String getTimings() {
+        System.out.println("Enter the Timings");
         return input.nextLine();
     }
 
@@ -44,10 +47,12 @@ public class Display {
     }
 
     public int getSeatNumber() {
+        System.out.println("Enter the seat Number");
         return input.nextInt();
     }
 
     public String getUserName() {
+        System.out.println("Enter the User Name");
         return input.nextLine();
     }
 
@@ -63,5 +68,10 @@ public class Display {
     public String selectAOption() {
         System.out.println("1.Book A Movie\n2.Quit");
         return input.nextLine();
+    }
+
+    public Double getMoneyToPay() {
+        System.out.println("Enter the money to pay");
+        return input.nextDouble();
     }
 }

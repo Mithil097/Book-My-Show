@@ -5,6 +5,7 @@ import display.Display;
 import model.Show;
 import movies.MovieNotAvailableException;
 import services.Booking;
+import services.MoneyNotCorrectException;
 
 public class BookingController {
 
@@ -16,7 +17,7 @@ public class BookingController {
         this.display = display;
     }
 
-    public void menu() throws MovieNotAvailableException, TheatreNotAvailableException {
+    public void menu() throws MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException {
         String option = display.selectAOption();
         switch (option) {
             case "1":
@@ -30,7 +31,7 @@ public class BookingController {
 
     }
 
-    public void run() throws MovieNotAvailableException, TheatreNotAvailableException {
+    public void run() throws MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException {
         display.showAvailableMovies(booking.getAvailableMovies());
         String movieName = display.getMovieName();
         display.showTheatres(booking.getTheatresForAMovie(movieName));
@@ -38,10 +39,11 @@ public class BookingController {
         display.showTimings(booking.getTimingsForTheTheatre(theatreName));
         String showTiming = display.getTimings();
         Show show = booking.getShow(theatreName, showTiming);
-        display.showAvailableSeats(booking.getAvailableSeats(show));
-        int seatNumber = display.getSeatNumber();
         String userName = display.getUserName();
-        booking.bookASeat(show, seatNumber);
+        display.showAvailableSeats(booking .getAvailableSeats(show));
+        int seatNumber = display.getSeatNumber();
+        Double money=display.getMoneyToPay();
+        booking.bookASeat(show, seatNumber,money);
         display.generateTicket(userName, movieName, theatreName, showTiming, seatNumber);
     }
 }

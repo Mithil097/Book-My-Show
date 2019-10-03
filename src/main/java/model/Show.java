@@ -44,8 +44,7 @@ public class Show {
         return availableSeats;
     }
 
-    public void bookTheSeat(int seatNumber,Double money) throws MoneyNotCorrectException {
-        payment.cash(money);
+    public void bookTheSeat(int seatNumber) {
         availableSeats.remove(Integer.valueOf(seatNumber));
     }
 }

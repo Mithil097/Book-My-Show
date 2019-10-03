@@ -56,13 +56,13 @@ public class Display {
         return input.nextLine();
     }
 
-    public void generateTicket(String userName, String movieName, String theatreName, String showTiming, int seatNumber) {
-        System.out.println("Person name\t" + userName);
-        System.out.println("Movie name\t" + movieName);
-        System.out.println("Theatre name\t" + theatreName);
-        System.out.println("ShowTimings\t" + showTiming);
+    public void generateTicket(String userName, String movieName, String theatreName, String showTiming, int seatNumber, String paymentId) {
+        System.out.println("Person name:\t" + userName);
+        System.out.println("Movie name:\t\t" + movieName);
+        System.out.println("Theatre name:\t" + theatreName);
+        System.out.println("ShowTimings:\t" + showTiming);
         System.out.println("Seat Number:\t" + seatNumber);
-
+        System.out.println("PaymentId:\t\t"+paymentId);
     }
 
     public String selectAOption() {
@@ -73,5 +73,14 @@ public class Display {
     public Double getMoneyToPay() {
         System.out.println("Enter the money to pay");
         return input.nextDouble();
+    }
+
+    public int getCardDetails() {
+        return input.nextInt();
+    }
+
+    public int getPaymentType() {
+        System.out.println("1.Cash\n2.DebitCard");
+        return input.nextInt();
     }
 }

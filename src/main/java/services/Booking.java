@@ -52,11 +52,8 @@ public class Booking {
         return show.getAvailableSeats();
     }
 
-    public void bookASeat(Show show, int seatNumber,Double money) throws MoneyNotCorrectException {
-        show.bookTheSeat(seatNumber,money);
+    public void bookASeat(Show show, int seatNumber) {
+        show.bookTheSeat(seatNumber);
     }
 
-    public void generateTicket(String userName, String movieName, String theatreName, String showTiming, int seatNumber, Double money) {
-        ticket.getTicket();
-    }
 }

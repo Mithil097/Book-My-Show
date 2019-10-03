@@ -66,7 +66,7 @@ public class BookingControllerTest {
         Booking booking = mock(Booking.class);
         BookingController bookingController = new BookingController(booking, display);
         bookingController.run();
-        verify(display).generateTicket(anyString(), anyString(), anyString(), anyString(), anyInt());
+        verify(display).generateTicket(anyString(), anyString(), anyString(), anyString(), anyInt(),anyString());
     }
 
     @Test
@@ -138,7 +138,7 @@ public class BookingControllerTest {
         Booking booking = mock(Booking.class);
         BookingController bookingController = new BookingController(booking, display);
         bookingController.run();
-        verify(booking).bookASeat(any(), anyInt(), anyDouble());
+        verify(booking).bookASeat(any(), anyInt());
     }
 
 }

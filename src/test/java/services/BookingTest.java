@@ -110,19 +110,8 @@ class BookingTest {
         TheatresHandler theatresHandler = mock(TheatresHandler.class);
         Show show = mock(Show.class);
         Booking bookTheShow = new Booking(moviesHandler, theatresHandler);
-        bookTheShow.bookASeat(show, 2, 100.0);
-        verify(show).bookTheSeat(anyInt(), anyDouble());
+        bookTheShow.bookASeat(show, 2);
+        verify(show).bookTheSeat(anyInt());
     }
 
-    @Test
-    void expectMoneyNotCorrectException() {
-        Throwable exception = assertThrows(MoneyNotCorrectException.class, () -> {
-            MoviesHandler moviesHandler = mock(MoviesHandler.class);
-        TheatresHandler theatresHandler = mock(TheatresHandler.class);
-        Show show = new Show("11:00PM");
-        Booking bookTheShow = new Booking(moviesHandler, theatresHandler);
-        bookTheShow.bookASeat(show, 2, 10.0);
-     });
-        assertEquals("Money is not correct",exception.getMessage());
-    }
 }

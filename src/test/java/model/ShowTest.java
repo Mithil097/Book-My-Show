@@ -45,7 +45,7 @@ public class ShowTest {
                 }
             }
         };
-        show.bookTheSeat(9, 100.00);
+        show.bookTheSeat(9);
         seats.remove(Integer.valueOf(9));
         assertEquals(seats, show.getAvailableSeats());
     }
@@ -57,7 +57,7 @@ public class ShowTest {
         Field executorField = show.getClass().getDeclaredField("payment");
         FieldSetter fieldSetter = new FieldSetter(show, executorField);
         fieldSetter.set(mockPayment);
-        show.bookTheSeat(9, anyDouble());
+        show.bookTheSeat(9);
         verify(mockPayment).cash(anyDouble());
     }
 }

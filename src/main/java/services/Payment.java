@@ -2,7 +2,7 @@ package services;
 
 public interface Payment {
 
-    void cash(Double money) throws MoneyNotCorrectException;
+    String cash(Double money) throws MoneyNotCorrectException;
 
-    void debitCard(int cardNumber,Double money);
+    String debitCard(int cardNumber, Double money) throws MoneyNotCorrectException;
 }

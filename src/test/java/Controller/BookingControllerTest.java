@@ -62,15 +62,6 @@ public class BookingControllerTest {
     }
 
     @Test
-    void expectToShowATicketForABookingOfASeat() throws MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException, SeatNotAvailableException {
-        Display display = mock(Display.class);
-        Booking booking = mock(Booking.class);
-        BookingController bookingController = new BookingController(booking, display);
-        bookingController.run();
-        verify(display).generateTicket(anyString(), anyString(), anyString(), anyString(), anyInt(),anyString());
-    }
-
-    @Test
     void expectToShowAvailableSeatsForAParticularSelected() throws MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException, SeatNotAvailableException {
         Display display = mock(Display.class);
         Booking booking = mock(Booking.class);
@@ -142,4 +133,21 @@ public class BookingControllerTest {
         verify(booking).bookASeat(any(), anyInt());
     }
 
+    @Test
+    void expectToGetTicketWhenBookingControllerCallsGetTicket() throws MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException, SeatNotAvailableException {
+        Display display = mock(Display.class);
+        Booking booking = mock(Booking.class);
+        BookingController bookingController = new BookingController(booking, display);
+        bookingController.run();
+        verify(booking).getTicket();
+    }
+
+    @Test
+    void expectGenerateTicketWhenBookingControllerCallsGenerateTicket() throws MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException, SeatNotAvailableException {
+        Display display = mock(Display.class);
+        Booking booking = mock(Booking.class);
+        BookingController bookingController = new BookingController(booking, display);
+        bookingController.run();
+        verify(booking).generateTicket(anyString(),anyString(),anyString(),anyString(),anyString());
+    }
 }

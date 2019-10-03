@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class PaymentHandlerTest {
+class PaymentHandlerTest {
     @Test
     void expectCash1ToReturnWhenPaymentWithCash() throws MoneyNotCorrectException {
         PaymentHandler payment=new PaymentHandler();

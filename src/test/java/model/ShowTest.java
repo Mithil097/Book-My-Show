@@ -9,7 +9,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class ShowTest {
+class ShowTest {
     @Test
     void expectGetTimingForTheShowToReturn() {
         Show show = new Show("11:00AM");
@@ -50,13 +50,6 @@ public class ShowTest {
 
         Throwable exception = assertThrows(SeatNotAvailableException.class, () -> {
             Show show = new Show("11:00AM");
-            List<Integer> seats = new ArrayList<Integer>() {
-                {
-                    for (int i = 1; i <= 10; i++) {
-                        add(i);
-                    }
-                }
-            };
 
             show.bookTheSeat(11);
         });

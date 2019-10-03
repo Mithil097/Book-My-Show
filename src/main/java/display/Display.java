@@ -83,4 +83,8 @@ public class Display {
         System.out.println("1.Cash\n2.DebitCard");
         return input.nextInt();
     }
+
+    public void showTicket(String ticket) {
+        System.out.println(ticket);
+    }
 }

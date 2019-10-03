@@ -6,9 +6,12 @@ import data.TheatresHandler;
 import model.SeatNotAvailableException;
 import model.Show;
 import model.Theatre;
+import model.Ticket;
 import movies.MovieNotAvailableException;
 import org.junit.jupiter.api.Test;
+import org.mockito.internal.util.reflection.FieldSetter;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -106,7 +109,7 @@ class BookingTest {
     }
 
     @Test
-    void expectSeatIsBookedForAParticularSelectedShow() throws MoneyNotCorrectException, SeatNotAvailableException {
+    void expectSeatIsBookedForAParticularSelectedShow() throws SeatNotAvailableException {
         MoviesHandler moviesHandler = mock(MoviesHandler.class);
         TheatresHandler theatresHandler = mock(TheatresHandler.class);
         Show show = mock(Show.class);
@@ -126,5 +129,30 @@ class BookingTest {
             bookTheShow.bookASeat(show,11);
         });
         assertEquals("Seat is not available", exception.getMessage());
+    }
+    @Test
+    void expect() throws NoSuchFieldException {
+        MoviesHandler moviesHandler = mock(MoviesHandler.class);
+        TheatresHandler theatresHandler = mock(TheatresHandler.class);
+        Ticket mockTicket=mock(Ticket.class);
+        Booking bookTheShow=new Booking(moviesHandler,theatresHandler);
+        Field executorField = bookTheShow.getClass().getDeclaredField("ticket");
+        FieldSetter fieldSetter = new FieldSetter(bookTheShow, executorField);
+        fieldSetter.set(mockTicket);
+        bookTheShow.generateTicket("AAAA","ABC","Asian","11:00PM","123");
+        verify(mockTicket).generateTicket("AAAA","ABC","Asian","11:00PM","123");
+    }
+
+    @Test
+    void expectAllDetailsOfTicket() throws NoSuchFieldException {
+        MoviesHandler moviesHandler = mock(MoviesHandler.class);
+        TheatresHandler theatresHandler = mock(TheatresHandler.class);
+        Ticket mockTicket=mock(Ticket.class);
+        Booking bookTheShow=new Booking(moviesHandler,theatresHandler);
+        Field executorField = bookTheShow.getClass().getDeclaredField("ticket");
+        FieldSetter fieldSetter = new FieldSetter(bookTheShow, executorField);
+        fieldSetter.set(mockTicket);
+        when(mockTicket.toString()).thenReturn("TicketDetails");
+        assertEquals("TicketDetails",bookTheShow.getTicket());
     }
 }

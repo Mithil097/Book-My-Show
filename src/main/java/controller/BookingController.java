@@ -51,11 +51,12 @@ public class BookingController {
         booking.bookASeat(show, seatNumber);
         int paymentType = display.getPaymentType();
         String paymentId = pay(paymentType, money);
-        display.generateTicket(userName, movieName, theatreName, showTiming, seatNumber,paymentId);
+        booking.generateTicket(userName,movieName, theatreName, showTiming,paymentId);
+        display.showTicket(booking.getTicket());
     }
 
     private String pay(int paymentType, Double money) throws MoneyNotCorrectException {
-        String id;
+        String id = null;
         switch (paymentType) {
             case 1:
                 id = payment.cash(money);
@@ -65,7 +66,7 @@ public class BookingController {
                 id = payment.debitCard(card, money);
                 break;
             default:
-                throw new IllegalStateException("Unexpected value: " + paymentType);
+                break;
         }
         return id;
     }

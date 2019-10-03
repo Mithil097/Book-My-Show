@@ -57,4 +57,11 @@ public class Booking {
         show.bookTheSeat(seatNumber);
     }
 
+    public void generateTicket(String userName, String movieName, String theatreName, String showTiming, String paymentId) {
+        ticket.generateTicket(userName,movieName, theatreName, showTiming, paymentId);
+    }
+
+    public String getTicket() {
+        return ticket.toString();
+    }
 }

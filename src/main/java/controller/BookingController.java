@@ -2,6 +2,7 @@ package controller;
 
 import Theatres.TheatreNotAvailableException;
 import display.Display;
+import model.SeatNotAvailableException;
 import model.Show;
 import movies.MovieNotAvailableException;
 import services.Booking;
@@ -20,12 +21,13 @@ public class BookingController {
         this.display = display;
     }
 
-    public void menu() throws MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException {
+    public void menu() throws MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException, SeatNotAvailableException {
         String option = display.selectAOption();
         switch (option) {
             case "1":
                 run();
                 menu();
+                break;
             case "2":
                 break;
             default:
@@ -34,7 +36,7 @@ public class BookingController {
 
     }
 
-    public void run() throws MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException {
+    public void run() throws MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException, SeatNotAvailableException {
         display.showAvailableMovies(booking.getAvailableMovies());
         String movieName = display.getMovieName();
         display.showTheatres(booking.getTheatresForAMovie(movieName));

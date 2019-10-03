@@ -3,6 +3,7 @@ package services;
 import Theatres.TheatreNotAvailableException;
 import data.MoviesHandler;
 import data.TheatresHandler;
+import model.SeatNotAvailableException;
 import model.Show;
 import model.Theatre;
 import model.Ticket;
@@ -52,7 +53,7 @@ public class Booking {
         return show.getAvailableSeats();
     }
 
-    public void bookASeat(Show show, int seatNumber) {
+    public void bookASeat(Show show, int seatNumber) throws SeatNotAvailableException {
         show.bookTheSeat(seatNumber);
     }
 

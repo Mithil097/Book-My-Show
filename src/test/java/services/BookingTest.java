@@ -3,6 +3,7 @@ package services;
 import Theatres.TheatreNotAvailableException;
 import data.MoviesHandler;
 import data.TheatresHandler;
+import model.SeatNotAvailableException;
 import model.Show;
 import model.Theatre;
 import movies.MovieNotAvailableException;
@@ -105,7 +106,7 @@ class BookingTest {
     }
 
     @Test
-    void expectSeatIsBookedForAParticularSelectedShow() throws MoneyNotCorrectException {
+    void expectSeatIsBookedForAParticularSelectedShow() throws MoneyNotCorrectException, SeatNotAvailableException {
         MoviesHandler moviesHandler = mock(MoviesHandler.class);
         TheatresHandler theatresHandler = mock(TheatresHandler.class);
         Show show = mock(Show.class);
@@ -114,4 +115,15 @@ class BookingTest {
         verify(show).bookTheSeat(anyInt());
     }
 
+    @Test
+    void expectExceptionToReturnWhenCalling() {
+        Throwable exception = assertThrows(SeatNotAvailableException.class, () -> {
+            MoviesHandler moviesHandler = mock(MoviesHandler.class);
+            TheatresHandler theatresHandler = mock(TheatresHandler.class);
+            Show show=new Show("11:00PM");
+            Booking bookTheShow = new Booking(moviesHandler, theatresHandler);
+            bookTheShow.bookASeat(show,11);
+        });
+        assertEquals("Seat is not available", exception.getMessage());
+    }
 }

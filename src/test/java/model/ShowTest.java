@@ -1,19 +1,13 @@
 package model;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.internal.util.reflection.FieldSetter;
 import services.MoneyNotCorrectException;
-import services.Payment;
-import services.PaymentHandler;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Matchers.anyDouble;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ShowTest {
     @Test
@@ -36,7 +30,7 @@ public class ShowTest {
     }
 
     @Test
-    void expectToBookASeat() throws MoneyNotCorrectException {
+    void expectToBookASeat() throws MoneyNotCorrectException, SeatNotAvailableException {
         Show show = new Show("11:00AM");
         List<Integer> seats = new ArrayList<Integer>() {
             {
@@ -50,14 +44,22 @@ public class ShowTest {
         assertEquals(seats, show.getAvailableSeats());
     }
 
+
     @Test
-    void expectToVerifyPaymentIsCalled() throws NoSuchFieldException, MoneyNotCorrectException {
-        Show show = new Show("11:00AM");
-        PaymentHandler mockPayment = mock(PaymentHandler.class);
-        Field executorField = show.getClass().getDeclaredField("payment");
-        FieldSetter fieldSetter = new FieldSetter(show, executorField);
-        fieldSetter.set(mockPayment);
-        show.bookTheSeat(9);
-        verify(mockPayment).cash(anyDouble());
+    void expectExceptionWhenYouTryToBookASeatWhichIsNotAvailable() throws SeatNotAvailableException {
+
+        Throwable exception = assertThrows(SeatNotAvailableException.class, () -> {
+            Show show = new Show("11:00AM");
+            List<Integer> seats = new ArrayList<Integer>() {
+                {
+                    for (int i = 1; i <= 10; i++) {
+                        add(i);
+                    }
+                }
+            };
+
+            show.bookTheSeat(11);
+        });
+        assertEquals("Seat is not available", exception.getMessage());
     }
 }

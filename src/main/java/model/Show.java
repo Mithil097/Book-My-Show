@@ -12,7 +12,6 @@ public class Show {
     private final String time;
     private final int numberOfSeats;
     private List<Integer> availableSeats = new ArrayList<>();
-    private Payment payment= new PaymentHandler();
 
     public Show(String time) {
         this.time = time;
@@ -44,7 +43,10 @@ public class Show {
         return availableSeats;
     }
 
-    public void bookTheSeat(int seatNumber) {
+    public void bookTheSeat(int seatNumber) throws SeatNotAvailableException {
+        if (!availableSeats.contains(seatNumber)){
+            throw new SeatNotAvailableException("Seat is not available");
+        }
         availableSeats.remove(Integer.valueOf(seatNumber));
     }
 }

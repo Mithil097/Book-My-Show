@@ -1,4 +1,5 @@
 import Theatres.TheatreNotAvailableException;
+import model.SeatNotAvailableException;
 import services.Booking;
 import controller.BookingController;
 import data.MoviesHandler;
@@ -16,7 +17,7 @@ import java.text.ParseException;
 import java.util.List;
 
 public class BookingMain {
-    public static void main(String[] args) throws IOException, ParseException, MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException {
+    public static void main(String[] args) throws IOException, ParseException, MovieNotAvailableException, TheatreNotAvailableException, MoneyNotCorrectException, SeatNotAvailableException {
         File movieFile = new File("/Users/mithil.kumar/Desktop/BookMyShow/BookMyShow/src/main/resources/movies.txt");
         File theatreFile = new File("/Users/mithil.kumar/Desktop/BookMyShow/BookMyShow/src/main/resources/Theatres.txt");
         Parser parser = new Parser();

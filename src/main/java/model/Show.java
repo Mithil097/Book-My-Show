@@ -1,9 +1,5 @@
 package model;
 
-import services.MoneyNotCorrectException;
-import services.Payment;
-import services.PaymentHandler;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -44,7 +40,7 @@ public class Show {
     }
 
     public void bookTheSeat(int seatNumber) throws SeatNotAvailableException {
-        if (!availableSeats.contains(seatNumber)){
+        if (!availableSeats.contains(seatNumber)) {
             throw new SeatNotAvailableException("Seat is not available");
         }
         availableSeats.remove(Integer.valueOf(seatNumber));

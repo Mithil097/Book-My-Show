@@ -17,7 +17,7 @@ public class Booking {
     private static final Logger logger = Logger.getLogger(Booking.class.getName());
     private final MoviesHandler moviesHandler;
     private final TheatresHandler theatresHandler;
-    private Ticket ticket=new Ticket();
+    private Ticket ticket = new Ticket();
 
 
     public Booking(MoviesHandler moviesHandler, TheatresHandler theatresHandler) {

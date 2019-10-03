@@ -1,14 +1,14 @@
 import Theatres.TheatreNotAvailableException;
-import model.SeatNotAvailableException;
-import services.Booking;
 import controller.BookingController;
 import data.MoviesHandler;
 import data.Parser;
 import data.TheatresHandler;
 import display.Display;
 import model.Movie;
+import model.SeatNotAvailableException;
 import model.Theatre;
 import movies.MovieNotAvailableException;
+import services.Booking;
 import services.MoneyNotCorrectException;
 
 import java.io.File;

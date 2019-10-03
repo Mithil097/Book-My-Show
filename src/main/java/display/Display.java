@@ -62,7 +62,7 @@ public class Display {
         System.out.println("Theatre name:\t" + theatreName);
         System.out.println("ShowTimings:\t" + showTiming);
         System.out.println("Seat Number:\t" + seatNumber);
-        System.out.println("PaymentId:\t\t"+paymentId);
+        System.out.println("PaymentId:\t\t" + paymentId);
     }
 
     public String selectAOption() {

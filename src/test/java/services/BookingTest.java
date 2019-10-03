@@ -120,8 +120,9 @@ class BookingTest {
         Throwable exception = assertThrows(SeatNotAvailableException.class, () -> {
             MoviesHandler moviesHandler = mock(MoviesHandler.class);
             TheatresHandler theatresHandler = mock(TheatresHandler.class);
-            Show show=new Show("11:00PM");
+            Show show=mock(Show.class);
             Booking bookTheShow = new Booking(moviesHandler, theatresHandler);
+            doThrow(new SeatNotAvailableException("Seat is not available")).when(show).bookTheSeat(11);
             bookTheShow.bookASeat(show,11);
         });
         assertEquals("Seat is not available", exception.getMessage());
